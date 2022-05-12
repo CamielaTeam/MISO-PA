@@ -20,7 +20,7 @@ Pre-requisitos:
   
 * Ejecutar `npm install` en la carpeta en la que se clonó el repositorio
 
-* Ejecutar ambas versiones de ghost localmente, los sitios deben estar limpios, sin posts o tags creados
+* Ejecutar ambas versiones de ghost localmente (v4.41.3 en el puerto 2368 y v3.42.0 en el puerto 2369), los sitios deben estar limpios, sin posts o tags creados
 ### Cypress
 * Ejecutar el comando `npm run cypress:open` en a raíz del proyecto
 * **IMPORTANTE** : Para la generación de las imágenes para VRT, se debe dar click uno a uno a cada archivo de tests, de lo contrario, el generador de reportes no encontrará las imágenes especificadas
@@ -34,7 +34,7 @@ Pre-requisitos:
 ### Visual Regression Testing
 * Para generar los reportes de la regresión visual, ejecutar el comando `node main.js` en la raíz del proyecto
 * Para visualizar los reportes generados, ejecutar el comando `npm run report:serve`, ir a la url `localhost:8080` y hacer click en la carpeta results, en donde se verán las carpetas con los reportes generados a partir de las pruebas de cypress y kraken
-
+* **IMPORTANTE** : Si se desea volver a ejecutar las pruebas de cypress y kraken, recomendamos eliminar las carpetas que contienen los screenshots `cypress/screenshots` y `features/web/screenshots` antes de ejecutar las pruebas
 
 ## Descripción de casos de prueba
 
