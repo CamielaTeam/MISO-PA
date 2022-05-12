@@ -1,10 +1,8 @@
-# MISOPAG13
+# MISO-PA
 
 Integrantes:
 * Camilo Alejandro Sánchez Cruz ca.sanchezc12@uniandes.edu.co
 * Lizeth Daniela Castellanos Alfonso ld.castellanos@uniandes.edu.co
-* Daniel Vivas Suarez d.vivass@uniandes.edu.co
-* Mateo Olaya Osorio m.olaya11@uniandes.edu.co
 
 ## Cómo ejecutar los tests
 
@@ -12,20 +10,30 @@ Pre-requisitos:
 * Instalar la versión 4.41.3 de ghost, para ello se puede ejecutar el siguiente comando
 `ghost install 4.41.3 --local`
 
+* Instalar la versión 3.42.0 de ghots, para ello se puede ejecutar el siguiente comando `ghost install 3.42.0 --local`
+* Para ambas versiones, crear un sitio con la siguiente configuración: 
+  ```Nombre del sitio: Test ; Nombre completo: Testing User ; Correo: test_ghost_g13@gmail.com ; Contraseña: prueba123123```
+
 * Tener una versión LTS de node reciente (preferiblemente v16.15.0) y una versión compatible de npm
 
-* Instalar adb en sus sitema operativo
+* Instalar adb en su sistema operativo
   
 * Ejecutar `npm install` en la carpeta en la que se clonó el repositorio
 
-* Ejecutar ghost localmente, el sitio debe estar limpio, sin posts o tags creados
+* Ejecutar ambas versiones de ghost localmente, los sitios deben estar limpios, sin posts o tags creados
 ### Cypress
 * Ejecutar el comando `npm run cypress:open` en a raíz del proyecto
-* Hacer click en el archivo de pruebas que se desea ejecutar
+* **IMPORTANTE** : Para la generación de las imágenes para VRT, se debe dar click uno a uno a cada archivo de tests, de lo contrario, el generador de reportes no encontrará las imágenes especificadas
+* Los screenshots de los tests estarán en la carpeta `cypress/screenshots`
 
 ### Kraken
 * Ejecutar el comando `npm run kraken:run` en la raíz del proyecto
 * Para ver un listado de los posibles errores por favor visitar el siguiente [enlace](https://thesoftwaredesignlab.github.io/AutTesingCodelabs/w5/krakenWeb/index.html) en la sección "Consideraciones adicionales"
+* Los screenshots de los tests estarán en la carpeta `feature/web/screenshots`
+
+### Visual Regression Testing
+* Para generar los reportes de la regresión visual, ejecutar el comando `node main.js` en la raíz del proyecto
+* Para visualizar los reportes generados, ejecutar el comando `npm run report:serve`, ir a la url `localhost:8080` y hacer click en la carpeta results, en donde se verán las carpetas con los reportes generados a partir de las pruebas de cypress y kraken
 
 
 ## Descripción de casos de prueba
