@@ -18,9 +18,9 @@ const options = {
   ignore: "antialiasing",
 };
 
-async function compareCypress() {
-  const datetime = new Date().toISOString().replace(/:/g, ".");
-  fs.mkdirSync(`./vrt/${datetime}`, { recursive: true });
+async function compareCypress(datetime) {
+  fs.mkdirSync("./vrt/cypress/", { recursive: true });
+  fs.mkdirSync(`./vrt/cypress/${datetime}`, { recursive: true });
 
   //TODO: Falta anadir eliminar page
   const funcionalities = [
@@ -53,8 +53,12 @@ async function compareCypress() {
   };
   for (const functionality of funcionalities) {
     const stepsInfo = [];
-    fs.mkdirSync(`./vrt/${datetime}/${functionality}`, { recursive: true });
-    fs.mkdirSync(`./results/${datetime}/${functionality}`, { recursive: true });
+    fs.mkdirSync(`./vrt/cypress/${datetime}/${functionality}`, {
+      recursive: true,
+    });
+    fs.mkdirSync(`./results/cypress/${datetime}/${functionality}`, {
+      recursive: true,
+    });
     const oldVersionPath = paths[`oldVersion${functionality}`];
     const newVersionPath = paths[`newVersion${functionality}`];
 
@@ -69,7 +73,7 @@ async function compareCypress() {
       );
 
       fs.writeFileSync(
-        `./vrt/${datetime}/${functionality}/compare-${functionality}-${oldImages[index]}`,
+        `./vrt/cypress/${datetime}/${functionality}/compare-${functionality}-${oldImages[index]}`,
         data.getBuffer()
       );
 
@@ -90,17 +94,85 @@ async function compareCypress() {
         ),
         comparationImage: path.resolve(
           __dirname,
-          `./vrt/${datetime}/${functionality}/compare-${functionality}-${oldImages[index]}`
+          `./vrt/cypress/${datetime}/${functionality}/compare-${functionality}-${oldImages[index]}`
         ),
       });
     }
     fs.copyFileSync(
       "./index.css",
-      `./results/${datetime}/${functionality}/index.css`
+      `./results/cypress/${datetime}/${functionality}/index.css`
     );
     fs.writeFileSync(
-      `./results/${datetime}/${functionality}/report.html`,
-      createReport(datetime, functionality, stepsInfo)
+      `./results/cypress/${datetime}/${functionality}/report.html`,
+      createReport(datetime, functionality, stepsInfo, "Cypress")
+    );
+  }
+}
+
+async function compareKraken(datetime) {
+  fs.mkdirSync("./vrt/kraken/", { recursive: true });
+  fs.mkdirSync(`./vrt/kraken/${datetime}`, { recursive: true });
+
+  //TODO: Falta anadir eliminar page
+  const funcionalities = ["PostCreate"];
+  const paths = {
+    newVersionPostCreate: "./features/web/screenshots/NewVersionCreatePost",
+    oldVersionPostCreate: "./features/web/screenshots/CreatePost",
+  };
+  for (const functionality of funcionalities) {
+    const stepsInfo = [];
+    fs.mkdirSync(`./vrt/kraken/${datetime}/${functionality}`, {
+      recursive: true,
+    });
+    fs.mkdirSync(`./results/kraken/${datetime}/${functionality}`, {
+      recursive: true,
+    });
+    const oldVersionPath = paths[`oldVersion${functionality}`];
+    const newVersionPath = paths[`newVersion${functionality}`];
+
+    const oldImages = fs.readdirSync(oldVersionPath);
+    const newImages = fs.readdirSync(newVersionPath);
+
+    for (const index in oldImages) {
+      const data = await compareImages(
+        `${oldVersionPath}/${oldImages[index]}`,
+        `${newVersionPath}/${newImages[index]}`,
+        options
+      );
+
+      fs.writeFileSync(
+        `./vrt/kraken/${datetime}/${functionality}/compare-${functionality}-${oldImages[index]}`,
+        data.getBuffer()
+      );
+
+      stepsInfo.push({
+        isSameDimensions: data.isSameDimensions,
+        dimensionDifference: data.dimensionDifference,
+        rawMisMatchPercentage: data.rawMisMatchPercentage,
+        misMatchPercentage: data.misMatchPercentage,
+        diffBounds: data.diffBounds,
+        analysisTime: data.analysisTime,
+        oldImage: path.resolve(
+          __dirname,
+          `${oldVersionPath}/${oldImages[index]}`
+        ),
+        newImage: path.resolve(
+          __dirname,
+          `${newVersionPath}/${newImages[index]}`
+        ),
+        comparationImage: path.resolve(
+          __dirname,
+          `./vrt/kraken/${datetime}/${functionality}/compare-${functionality}-${oldImages[index]}`
+        ),
+      });
+    }
+    fs.copyFileSync(
+      "./index.css",
+      `./results/kraken/${datetime}/${functionality}/index.css`
+    );
+    fs.writeFileSync(
+      `./results/kraken/${datetime}/${functionality}/report.html`,
+      createReport(datetime, functionality, stepsInfo, "Kraken")
     );
   }
 }
@@ -151,7 +223,7 @@ function scenario(info) {
   </div>`;
 }
 
-function createReport(datetime, functionalityName, info) {
+function createReport(datetime, functionalityName, info, type) {
   return `
     <html>
         <head>
@@ -159,7 +231,7 @@ function createReport(datetime, functionalityName, info) {
             <link href="index.css" type="text/css" rel="stylesheet">
         </head>
         <body>
-            <h1>Report for ${functionalityName} on Ghost v4.41.3 (old) and v3.42 (new)
+            <h1>Report for ${functionalityName} on Ghost v4.41.3 (old) and v3.42 (new) using ${type}
             </h1>
             <p>Executed: ${datetime}</p>
             <div id="visualizer">
@@ -170,7 +242,9 @@ function createReport(datetime, functionalityName, info) {
 }
 
 async function main() {
-  await compareCypress();
+  const datetime = new Date().toISOString().replace(/:/g, ".");
+  await compareCypress(datetime);
+  await compareKraken(datetime);
 }
 
 main();
