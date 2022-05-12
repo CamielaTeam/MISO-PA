@@ -1,0 +1,30 @@
+{
+  "name": "misopag13",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "./node_modules/.bin/cypress open",
+    "kraken:run": "./node_modules/kraken-node/bin/kraken-node run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/casc3798/MISOPAG13.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/casc3798/MISOPAG13/issues"
+  },
+  "homepage": "https://github.com/casc3798/MISOPAG13#readme",
+  "devDependencies": {
+    "cypress": "^9.6.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-xpath": "^1.6.2",
+    "kraken-node": "^1.0.24",
+    "resemblejs": "^4.1.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+  }
+}

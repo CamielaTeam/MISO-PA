@@ -1,0 +1,12 @@
+{
+  "testFiles": "**/*.feature",
+  "env": {
+    "url_admin": "http://localhost:2368/ghost/",
+    "admin_email": "test_ghost_g13@gmail.com",
+    "admin_password": "prueba123123",
+    "ghost_url": "http://localhost:2368/",
+    "url_admin_new": "http://localhost:2369/ghost"
+  },
+  "viewportHeight": 1080,
+  "viewportWidth": 1920
+}
