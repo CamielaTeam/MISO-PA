@@ -84,18 +84,9 @@ async function compareCypress(datetime) {
         misMatchPercentage: data.misMatchPercentage,
         diffBounds: data.diffBounds,
         analysisTime: data.analysisTime,
-        oldImage: path.resolve(
-          __dirname,
-          `${oldVersionPath}/${oldImages[index]}`
-        ),
-        newImage: path.resolve(
-          __dirname,
-          `${newVersionPath}/${newImages[index]}`
-        ),
-        comparationImage: path.resolve(
-          __dirname,
-          `./vrt/cypress/${datetime}/${functionality}/compare-${functionality}-${oldImages[index]}`
-        ),
+        oldImage: `../../../.${oldVersionPath}/${oldImages[index]}`,
+        newImage: `../../../.${newVersionPath}/${newImages[index]}`,
+        comparationImage: `../../../../vrt/cypress/${datetime}/${functionality}/compare-${functionality}-${oldImages[index]}`,
       });
     }
     fs.copyFileSync(
@@ -152,18 +143,9 @@ async function compareKraken(datetime) {
         misMatchPercentage: data.misMatchPercentage,
         diffBounds: data.diffBounds,
         analysisTime: data.analysisTime,
-        oldImage: path.resolve(
-          __dirname,
-          `${oldVersionPath}/${oldImages[index]}`
-        ),
-        newImage: path.resolve(
-          __dirname,
-          `${newVersionPath}/${newImages[index]}`
-        ),
-        comparationImage: path.resolve(
-          __dirname,
-          `./vrt/kraken/${datetime}/${functionality}/compare-${functionality}-${oldImages[index]}`
-        ),
+        oldImage: `../../../.${oldVersionPath}/${oldImages[index]}`,
+        newImage: `../../../.${newVersionPath}/${newImages[index]}`,
+        comparationImage: `../../../../vrt/kraken/${datetime}/${functionality}/compare-${functionality}-${oldImages[index]}`,
       });
     }
     fs.copyFileSync(
