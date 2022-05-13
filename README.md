@@ -14,7 +14,7 @@ Pre-requisitos:
 * Para ambas versiones, crear un sitio con la siguiente configuración: 
   ```Nombre del sitio: Test ; Nombre completo: Testing User ; Correo: test_ghost_g13@gmail.com ; Contraseña: prueba123123```
 
-* Tener una versión LTS de node reciente (preferiblemente v16.15.0) y una versión compatible de npm
+* Tener una versión LTS de node reciente (preferiblemente v14.17.3) y una versión compatible de npm
 
 * Instalar adb en su sistema operativo
   

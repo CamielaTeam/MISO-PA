@@ -493,3 +493,10 @@ Then(
     expect(usernameText).to.equal(user_name);
   }
 );
+
+// Create tag - version 3.42
+
+When("I save the new tag in v3.42", async function () {
+  let saveTagButton = this.driver.$(selectors.selOldTagSaveButton);
+  return await saveTagButton.click();
+});

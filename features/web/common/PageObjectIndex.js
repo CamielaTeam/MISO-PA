@@ -38,6 +38,7 @@ const {
   selButtonSave,
   selButtonDeleteTag,
   selButtonConfirmDeleteTag,
+  selOldTagSaveButton,
 } = require("./TagsEditor");
 
 const {
@@ -164,4 +165,5 @@ module.exports = {
   selUserProfile,
   selUserEmail,
   selUsername,
+  selOldTagSaveButton,
 };
