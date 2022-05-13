@@ -1,6 +1,8 @@
 const selectors = require("../common/PageObjectIndex");
+const path = require("path");
+const fs = require("fs");
 
-const { Given, When, Then, Before, After } = require("@cucumber/cucumber");
+const { Given, When, Then, AfterStep } = require("@cucumber/cucumber");
 const expect = require("chai").expect;
 
 Given("I enter email {kraken-string}", async function (email) {
@@ -18,6 +20,24 @@ Given("I click on the login button", async function () {
   return await loginButton.click();
 });
 
+When(
+  "I save a screenshot with scenario {kraken-string} and step {kraken-string}",
+  async function (scenarioName, stepName) {
+    fs.mkdirSync(
+      path.resolve(__dirname, "../screenshots/") + `/${scenarioName}`,
+      {
+        recursive: true,
+      }
+    );
+    return await this.driver.saveScreenshot(
+      path.resolve(
+        __dirname,
+        `../screenshots/${scenarioName}/${+Date.now()}-${stepName}.png`
+      )
+    );
+  }
+);
+
 When("I click on the new post button", async function () {
   let newPostButton = this.driver.$(selectors.selLinkNewPost);
   return await newPostButton.click();
@@ -33,6 +53,15 @@ When("I write {kraken-string} in the post title", async function (title) {
   return await buttonBack.click();
 });
 
+When(
+  "I write {kraken-string} in the post title in new version",
+  async function (title) {
+    let titleInput = await this.driver.$(selectors.selTextAreaTitle);
+
+    return await titleInput.setValue(title);
+  }
+);
+
 When("I publish the new post", async function () {
   const spanSettingsMenu = await this.driver.$(selectors.selSpanSettingsMenu);
   await spanSettingsMenu.click();
@@ -44,6 +73,19 @@ When("I publish the new post", async function () {
     selectors.selButtonPublishConfirmation
   );
   return await buttonPublishConfirmation.click();
+});
+
+When("I publish the new post in new version", async function () {
+  const spanSettingsMenu = await this.driver.$(
+    selectors.newVersionSelButtonPostSettings
+  );
+  await spanSettingsMenu.click();
+  const divPublish = await this.driver.$(selectors.newVersionSelDivPublish);
+  await divPublish.click();
+  const buttonPublish = await this.driver.$(
+    selectors.newVersionSelButtonPublish
+  );
+  return await buttonPublish.click();
 });
 
 When("I schedule the new post", async function () {
@@ -65,6 +107,11 @@ When("I schedule the new post", async function () {
 
 When("I return to the posts list", async function () {
   const buttonBack = await this.driver.$(selectors.selButtonBack);
+  return await buttonBack.click();
+});
+
+When("I return to the posts list in new version", async function () {
+  const buttonBack = await this.driver.$(selectors.newVersionSelButtonBack);
   return await buttonBack.click();
 });
 

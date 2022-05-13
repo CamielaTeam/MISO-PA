@@ -79,7 +79,22 @@ const {
   selUsername,
 } = require("./PageList");
 
+const {
+  newVersionSelDivPublish,
+  newVersionSelButtonBack,
+  newVersionSelButtonPublish,
+  newVersionSelButtonDeletePost,
+  newVersionSelButtonConfirmDeletePost,
+  newVersionSelButtonPostSettings,
+} = require("./NewVersionPostEditor");
+
 module.exports = {
+  newVersionSelDivPublish,
+  newVersionSelButtonBack,
+  newVersionSelButtonPublish,
+  newVersionSelButtonDeletePost,
+  newVersionSelButtonConfirmDeletePost,
+  newVersionSelButtonPostSettings,
   selInputEmail,
   selButtonLogin,
   selLinkNewPost,
