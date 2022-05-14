@@ -493,3 +493,54 @@ Then(
     expect(usernameText).to.equal(user_name);
   }
 );
+
+// Create tag - version 3.42
+
+When("I save the new tag in v3.42", async function () {
+  let saveTagButton = this.driver.$(selectors.selOldTagSaveButton);
+  return await saveTagButton.click();
+});
+
+// Asign tag - version 3.42
+
+When("I open the post settings in v3.42", async function () {
+  const settingsButton = await this.driver.$(selectors.selPostSettingsNew);
+  return await settingsButton.click();
+});
+
+When("I close the post settings in v3.42", async function () {
+  const settingsButton = await this.driver.$(selectors.selPostSettingsCloseNew);
+  return await settingsButton.click();
+});
+
+When("I click editor title in v3.42", async function () {
+  const settingsButton = await this.driver.$(selectors.selPostEditorTitleNew);
+  return await settingsButton.click();
+});
+
+When("I click delete post in v3.42", async function () {
+  const buttonDeletePost = await this.driver.$(selectors.selButtonDeletePost);
+  await buttonDeletePost.click();
+});
+
+When("I confirm delete in v3.42", async function () {
+  const buttonConfirmDeletePost = await this.driver.$(
+    selectors.selButtonConfirmDeletePost
+  );
+  return await buttonConfirmDeletePost.click();
+});
+
+When("I schedule the new post in v3.42", async function () {
+  const spanSettingsMenu = await this.driver.$(
+    selectors.newVersionSelButtonPostSettings
+  );
+  await spanSettingsMenu.click();
+  const divPublish = await this.driver.$(selectors.newVersionSelDivPublish);
+  await divPublish.click();
+  const radioButtonSchedule = await this.driver.$(
+    selectors.selRadioButtonSchedule
+  );
+  await radioButtonSchedule.click();
+  const scheduleButton = await this.driver.$(selectors.selButtonScheduleNew);
+  await scheduleButton.click();
+});

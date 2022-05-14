@@ -11,10 +11,18 @@ Pre-requisitos:
 `ghost install 4.41.3 --local`
 
 * Instalar la versión 3.42.0 de ghots, para ello se puede ejecutar el siguiente comando `ghost install 3.42.0 --local`
+* Compruebe que la ejecución de las dos versiones con los puertos correctos de
+
+| Versión | Puerto |
+|---|---|
+| 4.41.3  | http://localhost:2368/ghost/  | 
+| 3.42.0  | http://localhost:2369/ghost/  |
+
+
 * Para ambas versiones, crear un sitio con la siguiente configuración: 
   ```Nombre del sitio: Test ; Nombre completo: Testing User ; Correo: test_ghost_g13@gmail.com ; Contraseña: prueba123123```
 
-* Tener una versión LTS de node reciente (preferiblemente v16.15.0) y una versión compatible de npm
+* Tener una versión LTS de node reciente (preferiblemente v14.17.3) y una versión compatible de npm
 
 * Instalar adb en su sistema operativo
   
