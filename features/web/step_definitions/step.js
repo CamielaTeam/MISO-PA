@@ -500,3 +500,28 @@ When("I save the new tag in v3.42", async function () {
   let saveTagButton = this.driver.$(selectors.selOldTagSaveButton);
   return await saveTagButton.click();
 });
+
+// Asign tag - version 3.42
+
+When("I open the post settings in v3.42", async function () {
+  const settingsButton = await this.driver.$(selectors.selPostSettingsNew);
+  return await settingsButton.click();
+});
+
+When("I close the post settings in v3.42", async function () {
+  const settingsButton = await this.driver.$(selectors.selPostSettingsCloseNew);
+  return await settingsButton.click();
+});
+
+When("I click editor title in v3.42", async function () {
+  console.log(
+    "selectors.selPostEditorTitleNew",
+    selectors.selPostEditorTitleNew
+  );
+  console.log(
+    "await this.driver.$(selectors.selPostEditorTitleNew);",
+    await this.driver.$(selectors.selPostEditorTitleNew)
+  );
+  const settingsButton = await this.driver.$(selectors.selPostEditorTitleNew);
+  return await settingsButton.click();
+});

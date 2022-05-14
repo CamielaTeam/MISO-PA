@@ -18,6 +18,9 @@ const {
   selButtonScheduleConfirmation,
   selInputTag,
   selFirstTagOption,
+  selPostSettingsNew,
+  selPostSettingsCloseNew,
+  selPostEditorTitleNew,
 } = require("./PostEditor");
 
 const {
@@ -166,4 +169,7 @@ module.exports = {
   selUserEmail,
   selUsername,
   selOldTagSaveButton,
+  selPostSettingsNew,
+  selPostSettingsCloseNew,
+  selPostEditorTitleNew,
 };

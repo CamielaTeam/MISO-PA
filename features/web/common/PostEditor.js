@@ -18,6 +18,9 @@ const selDivUpdate = "div.gh-publishmenu";
 const selButtonUpdate = "gh-publishmenu-button";
 const selInputTag = "#tag-input";
 const selFirstTagOption = 'li[data-option-index="0"]';
+const selPostSettingsNew = ".post-settings";
+const selPostSettingsCloseNew = ".close.settings-menu-header-action";
+const selPostEditorTitleNew = ".content-cover.ember-view";
 
 module.exports = {
   selButtonBack,
@@ -36,4 +39,7 @@ module.exports = {
   selButtonScheduleConfirmation,
   selInputTag,
   selFirstTagOption,
+  selPostSettingsNew,
+  selPostSettingsCloseNew,
+  selPostEditorTitleNew,
 };
