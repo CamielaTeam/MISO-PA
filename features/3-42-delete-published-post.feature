@@ -18,9 +18,10 @@ Scenario: Delete a published post successfully
   And I wait for 1 seconds
   And I click in the first post in the list
   And I wait for 2 seconds
-  And I open the post settings
-  And I delete the post
+  And I open the post settings in v3.42
+  And I click delete post in v3.42
+  And I wait for 2 seconds
+  And I confirm delete in v3.42
   And I wait for 2 seconds
   And I filter posts by status Published
-  And I wait for 2 seconds
   Then I see that there is no post with the title "Mi nuevo post para eliminar" in the post list

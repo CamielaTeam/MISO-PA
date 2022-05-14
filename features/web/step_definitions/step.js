@@ -514,14 +514,18 @@ When("I close the post settings in v3.42", async function () {
 });
 
 When("I click editor title in v3.42", async function () {
-  console.log(
-    "selectors.selPostEditorTitleNew",
-    selectors.selPostEditorTitleNew
-  );
-  console.log(
-    "await this.driver.$(selectors.selPostEditorTitleNew);",
-    await this.driver.$(selectors.selPostEditorTitleNew)
-  );
   const settingsButton = await this.driver.$(selectors.selPostEditorTitleNew);
   return await settingsButton.click();
+});
+
+When("I click delete post in v3.42", async function () {
+  const buttonDeletePost = await this.driver.$(selectors.selButtonDeletePost);
+  await buttonDeletePost.click();
+});
+
+When("I confirm delete in v3.42", async function () {
+  const buttonConfirmDeletePost = await this.driver.$(
+    selectors.selButtonConfirmDeletePost
+  );
+  return await buttonConfirmDeletePost.click();
 });
