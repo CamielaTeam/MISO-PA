@@ -529,3 +529,18 @@ When("I confirm delete in v3.42", async function () {
   );
   return await buttonConfirmDeletePost.click();
 });
+
+When("I schedule the new post in v3.42", async function () {
+  const spanSettingsMenu = await this.driver.$(
+    selectors.newVersionSelButtonPostSettings
+  );
+  await spanSettingsMenu.click();
+  const divPublish = await this.driver.$(selectors.newVersionSelDivPublish);
+  await divPublish.click();
+  const radioButtonSchedule = await this.driver.$(
+    selectors.selRadioButtonSchedule
+  );
+  await radioButtonSchedule.click();
+  const scheduleButton = await this.driver.$(selectors.selButtonScheduleNew);
+  await scheduleButton.click();
+});

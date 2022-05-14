@@ -21,6 +21,7 @@ const {
   selPostSettingsNew,
   selPostSettingsCloseNew,
   selPostEditorTitleNew,
+  selButtonScheduleNew,
 } = require("./PostEditor");
 
 const {
@@ -172,4 +173,5 @@ module.exports = {
   selPostSettingsNew,
   selPostSettingsCloseNew,
   selPostEditorTitleNew,
+  selButtonScheduleNew,
 };

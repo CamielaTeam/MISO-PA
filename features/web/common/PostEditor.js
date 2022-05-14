@@ -8,6 +8,8 @@ const selButtonPublishConfirmation =
 const selRadioButtonSchedule = ":nth-child(2) > .gh-publishmenu-radio-button";
 const selButtonSchedule =
   "button.gh-btn.gh-btn-black.gh-publishmenu-button.gh-btn-icon.ember-view";
+const selButtonScheduleNew =
+  "button.gh-btn.gh-btn-blue.gh-publishmenu-button.gh-btn-icon.ember-view";
 const selButtonScheduleConfirmation =
   "button.gh-btn.gh-btn-black.gh-btn-icon.ember-view";
 const selButtonPostSettings = "button.settings-menu-toggle";
@@ -42,4 +44,5 @@ module.exports = {
   selPostSettingsNew,
   selPostSettingsCloseNew,
   selPostEditorTitleNew,
+  selButtonScheduleNew,
 };
