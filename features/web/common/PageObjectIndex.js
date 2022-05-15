@@ -82,6 +82,7 @@ const {
   selUserProfile,
   selUserEmail,
   selUsername,
+  clickOutsideEditor,
 } = require("./PageList");
 
 const {
@@ -94,6 +95,7 @@ const {
 } = require("./NewVersionPostEditor");
 
 module.exports = {
+  clickOutsideEditor,
   newVersionSelDivPublish,
   newVersionSelButtonBack,
   newVersionSelButtonPublish,

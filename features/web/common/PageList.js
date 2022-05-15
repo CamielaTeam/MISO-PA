@@ -1,12 +1,12 @@
 const selCreatePage = "/html/body/div[2]/div/main/section/div/header/section/a";
 const selPageButton =
   "body > div.gh-app > div > nav.gh-nav > div > section > div.gh-nav-top > ul.gh-nav-list.gh-nav-manage > li:nth-child(2)";
+const clickOutsideEditor = "div.koenig-editor__editor-wrapper";
 const selTitlePage =
-  "/html/body/div[2]/div/main/div/section/div[1]/div[1]/textarea";
+  "textarea.gh-editor-title.ember-text-area.gh-input.ember-view";
 const selNewPageOutsideArea =
   "/html/body/div[2]/div/main/div/section/div[1]/div[1]";
-const selPublishDropdown =
-  "/html/body/div[2]/div/main/div/section/header/section/div[2]/div[1]";
+const selPublishDropdown = "div.ember-view.ember-basic-dropdown-trigger";
 const selUpdateDropdown =
   "/html/body/div[2]/div/main/div/section/header/section/div[1]/div[1]";
 const selPublishButton = "/html/body/div[1]/div/footer/button[2]";
@@ -71,4 +71,5 @@ module.exports = {
   selUserProfile,
   selUserEmail,
   selUsername,
+  clickOutsideEditor,
 };

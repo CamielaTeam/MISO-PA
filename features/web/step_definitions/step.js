@@ -309,14 +309,10 @@ When("I click on new page", async function () {
 });
 
 When("I write {kraken-string} in the page title", async function (title) {
-  let titleInput = await this.driver.$(selectors.selTitlePage);
-
+  let titleInput = await this.driver.$(selectors.selTextAreaTitle);
   await titleInput.setValue(title);
 
-  const newPageOutsideArea = await this.driver.$(
-    selectors.selNewPageOutsideArea
-  );
-  return await newPageOutsideArea.click();
+  await this.driver.$(selectors.clickOutsideEditor).click();
 });
 
 When("I click on publish page dropdown", async function () {
@@ -361,9 +357,10 @@ Then(
   async function (title) {
     const list = await this.driver.$$(selectors.selPagesList);
     const pageFirstItem = await list[0];
-    const pageTitle = await pageFirstItem.$(selectors.selPageTitle).getText();
-
-    expect(pageTitle).to.not.equal(title);
+    if (pageFirstItem) {
+      const pageTitle = await this.driver.$(selectors.selPageTitle).getText();
+      expect(pageTitle).to.not.equal(title);
+    }
   }
 );
 
@@ -419,7 +416,9 @@ Then("I see that the new page has the tag", async function () {
 When("I click on the first published page", async function () {
   const list = await this.driver.$$(selectors.selPagesList);
   const pageFirstItem = await list[0];
-  return await pageFirstItem.click();
+  if (pageFirstItem) {
+    return await pageFirstItem.click();
+  }
 });
 
 When("I sort by recently updated pages", async function () {

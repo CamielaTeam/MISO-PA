@@ -23,7 +23,7 @@ Integrantes:
 | 4.41.3  | http://localhost:2368/ghost/  | 
 | 3.42.0  | http://localhost:2369/ghost/  |
 
-* Ejecutar ambas versiones de ghost localmente (v4.41.3 en el puerto 2368 y v3.42.0 en el puerto 2369), los sitios deben estar limpios, sin posts o tags creados
+* Ejecutar ambas versiones de ghost localmente (v4.41.3 en el puerto 2368 y v3.42.0 en el puerto 2369), **IMPORTANTE:** los sitios deben estar limpios, sin posts o tags creados
 
 * Para ambas versiones, crear un sitio con la siguiente configuración: 
   **Nombre del sitio:** Test
