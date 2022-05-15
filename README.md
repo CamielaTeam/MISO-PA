@@ -177,10 +177,10 @@ https://drive.google.com/drive/folders/1OAehaP05M9WhC0HBfRuBZkEoQRQmte70?usp=sha
 
 | # | Test | Archivo | Notas |
 |---|---|---|---|
-| 1 | Borrar tag | 1--3-42-delete-tag.feature |[Screenshots](https://drive.google.com/file/d/1eChrZ3auW312P53rKAc5gaXjBbvnqAwb/view?usp=sharing) |
-| 2 | Crear tag| 2--3-42-create-tag.feature | [Screenshots](https://drive.google.com/file/d/11_GtZl_qF7Dx5KRxXjORw1AwRqCFezVq/view?usp=sharing) |
-| 3 | Editar tag | 3--3-42-edit-tag.feature | [Screenshots](https://drive.google.com/file/d/1tBxER5u3_U4wH1DqIMgqJuijhpgvGbXD/view?usp=sharing)|
-| 4 | Borrar post publicado | 4--3-42-delete-published-post.feature | [Screenshots](https://drive.google.com/file/d/1SqPXPafE3ET4ebQi55gPjaodnL_BD0fa/view?usp=sharing) |
+| 1 | Borrar tag | 3--3-42-delete-tag.feature |[Screenshots](https://drive.google.com/file/d/1eChrZ3auW312P53rKAc5gaXjBbvnqAwb/view?usp=sharing) |
+| 2 | Crear tag| 4--3-42-create-tag.feature | [Screenshots](https://drive.google.com/file/d/11_GtZl_qF7Dx5KRxXjORw1AwRqCFezVq/view?usp=sharing) |
+| 3 | Editar tag | 5--3-42-edit-tag.feature | [Screenshots](https://drive.google.com/file/d/1tBxER5u3_U4wH1DqIMgqJuijhpgvGbXD/view?usp=sharing)|
+| 4 | Borrar post publicado | 5--3-42-delete-published-post.feature | [Screenshots](https://drive.google.com/file/d/1SqPXPafE3ET4ebQi55gPjaodnL_BD0fa/view?usp=sharing) |
 | 5 | Borrar post programado | 5--3-42-delete-scheduled-post.feature | [Screenshots](https://drive.google.com/file/d/1qJP4QBcybIMZp3vEK_bLbJuZL69hi7yB/view?usp=sharing) |
 | 6 | Crear post | 6--3-42-create-post.feature | [Screenshots](https://drive.google.com/file/d/1lMP79u8-UhBEyXvJ2MTcwi5xgHJx1xO4/view?usp=sharing) |
 
