@@ -271,8 +271,10 @@ Then(
   "I see that there is no tag with the name {kraken-string} in the tag list",
   async function (name) {
     const list = await this.driver.$$(selectors.selListTagItem);
-    const tagTitle = await list[0].getText();
-    expect(tagTitle).to.not.equal(name);
+    const tagTitle = list[0];
+    if (tagTitle) {
+      expect(tagTitle.getText()).to.not.equal(name);
+    }
   }
 );
 
