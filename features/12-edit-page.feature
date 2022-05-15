@@ -9,6 +9,14 @@ Scenario: Edit a page title and see the changes
   And I wait for 2 seconds
   When I click on the page button
   And I wait for 2 seconds
+  And I click on new page
+  And I write "Nueva pagina para editar" in the page title
+  And I click on publish page dropdown
+  And I wait for 2 seconds
+  And I click on publish page button
+  And I wait for 2 seconds
+  And I click on go back to pages button
+  And I wait for 2 seconds
   And I filter published pages
   And I click on the first published page
   And I wait for 2 seconds
