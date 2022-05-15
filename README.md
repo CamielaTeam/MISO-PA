@@ -95,4 +95,37 @@ Integrantes:
 
 ## Descripción de casos de prueba Kraken
 
+### Versión 4.41.3
+
+| # | Test | Archivo | Notas |
+|---|---|---|---|
+| 1 | Eliminar post publicado  | 1-delete-published-post.feature | |
+| 2 | Eliminar post programado | 2-delete-scheduled-post.feature | |
+| 3 | Borrar tag | 3-delete-tag.feature | |
+| 4 | Crear tag | 4-create-tag.feature | |
+| 5 | Editar tag | 5-edit-tag.feature | |
+| 6 | Asignar tag a un post | 6-asign-tag.feature | |
+| 7 | Crear post | 7-create-post.feature | |
+| 8 | Programar post | 8-create-post-scheduled.feature | |
+| 9 | Crear borrador de post | 9-create-post-draft.feature | |
+| 10 | Editar post | 10-edit-post.feature | |
+| 11 | Borrar página | 11-delete-page.feature | |
+| 12 | Editar página | 12-edit-page.feature | |
+| 13 | Editar status de página | 13-edit-page-status.feature.feature | |
+| 14 | Crear página | 14-create-page.feature | |
+| 15 | Crear página como borrador | 15-create-draft-page.feature | |
+| 16 | Crear página y previsualizar | 16-create-page-preview.feature | |
+| 17 | Crear página con feature | 17-create-page-with-feature.feature | |
+| 18 | Crear página y ver sitio | 18-create-page-view-site.feature | |
+
+### Versión 3.42.0
+
+| # | Test | Archivo | Notas |
+|---|---|---|---|
+| 1 | Borrar tag | 1--3-42-delete-tag.feature | |
+| 2 | Crear tag| 2--3-42-create-tag.feature | |
+| 3 | Editar tag | 3--3-42-edit-tag.feature | |
+| 4 | Borrar post publicado | 4--3-42-delete-published-post.feature | |
+| 5 | Borrar post programado | 5--3-42-delete-scheduled-post.feature | |
+| 6 | Crear post | 6--3-42-create-post.feature | |
 
