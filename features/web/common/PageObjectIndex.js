@@ -18,6 +18,10 @@ const {
   selButtonScheduleConfirmation,
   selInputTag,
   selFirstTagOption,
+  selPostSettingsNew,
+  selPostSettingsCloseNew,
+  selPostEditorTitleNew,
+  selButtonScheduleNew,
 } = require("./PostEditor");
 
 const {
@@ -38,6 +42,7 @@ const {
   selButtonSave,
   selButtonDeleteTag,
   selButtonConfirmDeleteTag,
+  selOldTagSaveButton,
 } = require("./TagsEditor");
 
 const {
@@ -77,9 +82,27 @@ const {
   selUserProfile,
   selUserEmail,
   selUsername,
+  clickOutsideEditor,
 } = require("./PageList");
 
+const {
+  newVersionSelDivPublish,
+  newVersionSelButtonBack,
+  newVersionSelButtonPublish,
+  newVersionSelButtonDeletePost,
+  newVersionFeaturePost,
+  newVersionSelButtonConfirmDeletePost,
+  newVersionSelButtonPostSettings,
+} = require("./NewVersionPostEditor");
+
 module.exports = {
+  clickOutsideEditor,
+  newVersionSelDivPublish,
+  newVersionSelButtonBack,
+  newVersionSelButtonPublish,
+  newVersionSelButtonDeletePost,
+  newVersionSelButtonConfirmDeletePost,
+  newVersionSelButtonPostSettings,
   selInputEmail,
   selButtonLogin,
   selLinkNewPost,
@@ -93,6 +116,7 @@ module.exports = {
   selButtonPublish,
   selButtonSchedule,
   selButtonDeletePost,
+  newVersionFeaturePost,
   selSpanSettingsMenu,
   selButtonPostSettings,
   selRadioButtonSchedule,
@@ -149,4 +173,9 @@ module.exports = {
   selUserProfile,
   selUserEmail,
   selUsername,
+  selOldTagSaveButton,
+  selPostSettingsNew,
+  selPostSettingsCloseNew,
+  selPostEditorTitleNew,
+  selButtonScheduleNew,
 };

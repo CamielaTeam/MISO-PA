@@ -1,6 +1,8 @@
 const selectors = require("../common/PageObjectIndex");
+const path = require("path");
+const fs = require("fs");
 
-const { Given, When, Then, Before, After } = require("@cucumber/cucumber");
+const { Given, When, Then, AfterStep } = require("@cucumber/cucumber");
 const expect = require("chai").expect;
 
 Given("I enter email {kraken-string}", async function (email) {
@@ -18,6 +20,24 @@ Given("I click on the login button", async function () {
   return await loginButton.click();
 });
 
+When(
+  "I save a screenshot with scenario {kraken-string} and step {kraken-string}",
+  async function (scenarioName, stepName) {
+    fs.mkdirSync(
+      path.resolve(__dirname, "../screenshots/") + `/${scenarioName}`,
+      {
+        recursive: true,
+      }
+    );
+    return await this.driver.saveScreenshot(
+      path.resolve(
+        __dirname,
+        `../screenshots/${scenarioName}/${+Date.now()}-${stepName}.png`
+      )
+    );
+  }
+);
+
 When("I click on the new post button", async function () {
   let newPostButton = this.driver.$(selectors.selLinkNewPost);
   return await newPostButton.click();
@@ -33,6 +53,15 @@ When("I write {kraken-string} in the post title", async function (title) {
   return await buttonBack.click();
 });
 
+When(
+  "I write {kraken-string} in the post title in new version",
+  async function (title) {
+    let titleInput = await this.driver.$(selectors.selTextAreaTitle);
+
+    return await titleInput.setValue(title);
+  }
+);
+
 When("I publish the new post", async function () {
   const spanSettingsMenu = await this.driver.$(selectors.selSpanSettingsMenu);
   await spanSettingsMenu.click();
@@ -44,6 +73,19 @@ When("I publish the new post", async function () {
     selectors.selButtonPublishConfirmation
   );
   return await buttonPublishConfirmation.click();
+});
+
+When("I publish the new post in new version", async function () {
+  const spanSettingsMenu = await this.driver.$(
+    selectors.newVersionSelButtonPostSettings
+  );
+  await spanSettingsMenu.click();
+  const divPublish = await this.driver.$(selectors.newVersionSelDivPublish);
+  await divPublish.click();
+  const buttonPublish = await this.driver.$(
+    selectors.newVersionSelButtonPublish
+  );
+  return await buttonPublish.click();
 });
 
 When("I schedule the new post", async function () {
@@ -65,6 +107,11 @@ When("I schedule the new post", async function () {
 
 When("I return to the posts list", async function () {
   const buttonBack = await this.driver.$(selectors.selButtonBack);
+  return await buttonBack.click();
+});
+
+When("I return to the posts list in new version", async function () {
+  const buttonBack = await this.driver.$(selectors.newVersionSelButtonBack);
   return await buttonBack.click();
 });
 
@@ -224,8 +271,10 @@ Then(
   "I see that there is no tag with the name {kraken-string} in the tag list",
   async function (name) {
     const list = await this.driver.$$(selectors.selListTagItem);
-    const tagTitle = await list[0].getText();
-    expect(tagTitle).to.not.equal(name);
+    const tagTitle = list[0];
+    if (tagTitle) {
+      expect(tagTitle.getText()).to.not.equal(name);
+    }
   }
 );
 
@@ -262,14 +311,10 @@ When("I click on new page", async function () {
 });
 
 When("I write {kraken-string} in the page title", async function (title) {
-  let titleInput = await this.driver.$(selectors.selTitlePage);
-
+  let titleInput = await this.driver.$(selectors.selTextAreaTitle);
   await titleInput.setValue(title);
 
-  const newPageOutsideArea = await this.driver.$(
-    selectors.selNewPageOutsideArea
-  );
-  return await newPageOutsideArea.click();
+  await this.driver.$(selectors.clickOutsideEditor).click();
 });
 
 When("I click on publish page dropdown", async function () {
@@ -314,9 +359,10 @@ Then(
   async function (title) {
     const list = await this.driver.$$(selectors.selPagesList);
     const pageFirstItem = await list[0];
-    const pageTitle = await pageFirstItem.$(selectors.selPageTitle).getText();
-
-    expect(pageTitle).to.not.equal(title);
+    if (pageFirstItem) {
+      const pageTitle = await this.driver.$(selectors.selPageTitle).getText();
+      expect(pageTitle).to.not.equal(title);
+    }
   }
 );
 
@@ -372,7 +418,9 @@ Then("I see that the new page has the tag", async function () {
 When("I click on the first published page", async function () {
   const list = await this.driver.$$(selectors.selPagesList);
   const pageFirstItem = await list[0];
-  return await pageFirstItem.click();
+  if (pageFirstItem) {
+    return await pageFirstItem.click();
+  }
 });
 
 When("I sort by recently updated pages", async function () {
@@ -446,3 +494,63 @@ Then(
     expect(usernameText).to.equal(user_name);
   }
 );
+
+// Create tag - version 3.42
+
+When("I save the new tag in v3.42", async function () {
+  let saveTagButton = this.driver.$(selectors.selOldTagSaveButton);
+  return await saveTagButton.click();
+});
+
+// Asign tag - version 3.42
+
+When("I open the post settings in v3.42", async function () {
+  const settingsButton = await this.driver.$(selectors.selPostSettingsNew);
+  return await settingsButton.click();
+});
+
+When("I close the post settings in v3.42", async function () {
+  const settingsButton = await this.driver.$(selectors.selPostSettingsCloseNew);
+  return await settingsButton.click();
+});
+
+When("I click editor title in v3.42", async function () {
+  const settingsButton = await this.driver.$(selectors.selPostEditorTitleNew);
+  return await settingsButton.click();
+});
+
+When("I click delete post in v3.42", async function () {
+  const buttonDeletePost = await this.driver.$(
+    selectors.newVersionSelButtonDeletePost
+  );
+  await buttonDeletePost.click();
+});
+
+When("I go to bottom of settings in v3.42", async function () {
+  const buttonFeaturePost = await this.driver.$(
+    selectors.newVersionFeaturePost
+  );
+  await buttonFeaturePost.click();
+});
+
+When("I confirm delete in v3.42", async function () {
+  const buttonConfirmDeletePost = await this.driver.$(
+    selectors.selButtonConfirmDeletePost
+  );
+  return await buttonConfirmDeletePost.click();
+});
+
+When("I schedule the new post in v3.42", async function () {
+  const spanSettingsMenu = await this.driver.$(
+    selectors.newVersionSelButtonPostSettings
+  );
+  await spanSettingsMenu.click();
+  const divPublish = await this.driver.$(selectors.newVersionSelDivPublish);
+  await divPublish.click();
+  const radioButtonSchedule = await this.driver.$(
+    selectors.selRadioButtonSchedule
+  );
+  await radioButtonSchedule.click();
+  const scheduleButton = await this.driver.$(selectors.selButtonScheduleNew);
+  await scheduleButton.click();
+});
