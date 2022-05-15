@@ -22,7 +22,6 @@ async function compareCypress(datetime) {
   fs.mkdirSync("./vrt/cypress/", { recursive: true });
   fs.mkdirSync(`./vrt/cypress/${datetime}`, { recursive: true });
 
-  //TODO: Falta anadir eliminar page
   const funcionalities = [
     "PageCreate",
     "PageDelete",
@@ -105,10 +104,31 @@ async function compareKraken(datetime) {
   fs.mkdirSync(`./vrt/kraken/${datetime}`, { recursive: true });
 
   //TODO: Falta anadir eliminar page
-  const funcionalities = ["PostCreate"];
+  const funcionalities = [
+    "PostCreate",
+    "PostPublishedDelete",
+    "PostScheduledDelete",
+    "TagCreate",
+    "TagEdit",
+    "TagDelete",
+  ];
   const paths = {
     newVersionPostCreate: "./features/web/screenshots/NewVersionCreatePost",
     oldVersionPostCreate: "./features/web/screenshots/CreatePost",
+    oldVersionPostPublishedDelete:
+      "./features/web/screenshots/DeletePublishedPost",
+    oldVersionPostScheduledDelete:
+      "./features/web/screenshots/DeleteScheduledPost",
+    oldVersionTagCreate: "./features/web/screenshots/CreateTag",
+    oldVersionTagEdit: "./features/web/screenshots/EditTag",
+    oldVersionTagDelete: "./features/web/screenshots/DeleteTag",
+    newVersionPostPublishedDelete:
+      "./features/web/screenshots/NewDeletePublishedPost",
+    newVersionPostScheduledDelete:
+      "./features/web/screenshots/NewDeleteScheduledPost",
+    newVersionTagCreate: "./features/web/screenshots/NewCreateTag",
+    newVersionTagEdit: "./features/web/screenshots/NewEditTag",
+    newVersionTagDelete: "./features/web/screenshots/NewDeleteTag",
   };
   for (const functionality of funcionalities) {
     const stepsInfo = [];
