@@ -90,6 +90,7 @@ const {
   newVersionSelButtonBack,
   newVersionSelButtonPublish,
   newVersionSelButtonDeletePost,
+  newVersionFeaturePost,
   newVersionSelButtonConfirmDeletePost,
   newVersionSelButtonPostSettings,
 } = require("./NewVersionPostEditor");
@@ -115,6 +116,7 @@ module.exports = {
   selButtonPublish,
   selButtonSchedule,
   selButtonDeletePost,
+  newVersionFeaturePost,
   selSpanSettingsMenu,
   selButtonPostSettings,
   selRadioButtonSchedule,

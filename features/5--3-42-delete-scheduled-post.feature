@@ -28,7 +28,10 @@ Scenario: Delete a published post successfully
   And I wait for 2 seconds
   And I save a screenshot with scenario "NewDeleteScheduledPost" and step "open-editing-post"
   And I open the post settings in v3.42
+  And I wait for 3 seconds
   And I save a screenshot with scenario "NewDeleteScheduledPost" and step "open-post-settings"
+  And I go to bottom of settings in v3.42
+  And I wait for 2 seconds
   And I click delete post in v3.42
   And I wait for 2 seconds
   And I confirm delete in v3.42

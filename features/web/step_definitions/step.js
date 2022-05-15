@@ -518,8 +518,17 @@ When("I click editor title in v3.42", async function () {
 });
 
 When("I click delete post in v3.42", async function () {
-  const buttonDeletePost = await this.driver.$(selectors.selButtonDeletePost);
+  const buttonDeletePost = await this.driver.$(
+    selectors.newVersionSelButtonDeletePost
+  );
   await buttonDeletePost.click();
+});
+
+When("I go to bottom of settings in v3.42", async function () {
+  const buttonFeaturePost = await this.driver.$(
+    selectors.newVersionFeaturePost
+  );
+  await buttonFeaturePost.click();
 });
 
 When("I confirm delete in v3.42", async function () {
