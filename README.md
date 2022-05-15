@@ -6,11 +6,16 @@ Integrantes:
 
 ## Cómo ejecutar los tests
 
-Pre-requisitos:
+####Pre-requisitos:
+* Tener una versión LTS de node reciente (preferiblemente v14.17.3) y una versión compatible de npm. La versión 14.17.3 será util para instalar ambas versiones de ghost
+* Instalar adb en su sistema operativo
+
+####Configuración de ghost:
 * Instalar la versión 4.41.3 de ghost, para ello se puede ejecutar el siguiente comando
 `ghost install 4.41.3 --local`
 
-* Instalar la versión 3.42.0 de ghots, para ello se puede ejecutar el siguiente comando `ghost install 3.42.0 --local`
+* Instalar la versión 3.42.0 de ghots, para ello se puede ejecutar el siguiente comando
+  `ghost install 3.42.0 --local`
 * Compruebe que la ejecución de las dos versiones con los puertos correctos de
 
 | Versión | Puerto |
@@ -18,23 +23,30 @@ Pre-requisitos:
 | 4.41.3  | http://localhost:2368/ghost/  | 
 | 3.42.0  | http://localhost:2369/ghost/  |
 
+* Ejecutar ambas versiones de ghost localmente (v4.41.3 en el puerto 2368 y v3.42.0 en el puerto 2369), los sitios deben estar limpios, sin posts o tags creados
 
 * Para ambas versiones, crear un sitio con la siguiente configuración: 
-  ```Nombre del sitio: Test ; Nombre completo: Testing User ; Correo: test_ghost_g13@gmail.com ; Contraseña: prueba123123```
+  **Nombre del sitio:** Test
+  **Nombre completo:** Testing User
+  **Correo:** test_ghost_g13@gmail.com
+  **Contraseña:** prueba123123
 
-* Tener una versión LTS de node reciente (preferiblemente v14.17.3) y una versión compatible de npm
 
-* Instalar adb en su sistema operativo
+####Configuración del proyecto
   
+* Clonar el repositorio https://github.com/CamielaTeam/MISO-PA/
+`git clone https://github.com/CamielaTeam/MISO-PA/`
+
 * Ejecutar `npm install` en la carpeta en la que se clonó el repositorio
 
-* Ejecutar ambas versiones de ghost localmente (v4.41.3 en el puerto 2368 y v3.42.0 en el puerto 2369), los sitios deben estar limpios, sin posts o tags creados
-### Cypress
+
+### Ejecución de tests de Cypress
 * Ejecutar el comando `npm run cypress:open` en a raíz del proyecto
 * **IMPORTANTE** : Para la generación de las imágenes para VRT, se debe dar click uno a uno a cada archivo de tests, de lo contrario, el generador de reportes no encontrará las imágenes especificadas
 * Los screenshots de los tests estarán en la carpeta `cypress/screenshots`
 
-### Kraken
+###  Ejecución de tests de Kraken
+* En la página de tests de Cypress podrá encontrar el listado de tests y su respectiva asociación con el archivo
 * Ejecutar el comando `npm run kraken:run` en la raíz del proyecto
 * Para ver un listado de los posibles errores por favor visitar el siguiente [enlace](https://thesoftwaredesignlab.github.io/AutTesingCodelabs/w5/krakenWeb/index.html) en la sección "Consideraciones adicionales"
 * Los screenshots de los tests estarán en la carpeta `feature/web/screenshots`
@@ -44,62 +56,43 @@ Pre-requisitos:
 * Para visualizar los reportes generados, ejecutar el comando `npm run report:serve`, ir a la url `localhost:8080` y hacer click en la carpeta results, en donde se verán las carpetas con los reportes generados a partir de las pruebas de cypress y kraken
 * **IMPORTANTE** : Si se desea volver a ejecutar las pruebas de cypress y kraken, recomendamos eliminar las carpetas que contienen los screenshots `cypress/screenshots` y `features/web/screenshots` antes de ejecutar las pruebas
 
-## Descripción de casos de prueba
+## Descripción de casos de prueba Cypress
 
-### 1.  Crear posts:
-  * Creación exitosa de un post (flujo: Login -> Crear Post -> Publicar post -> Listar posts -> Filtrar posts)
-  * Creación exitosa de un post en modo borrador (flujo: Login -> Crear Post -> Listar posts -> Filtrar posts)
-  * Creación exitosa de un post programado para su publicación (flujo: Login -> Crear post -> Programar publicación -> Listar posts -> Filtrar posts)
-### 2. Eliminar posts:
-  * Eliminación exitosa de un post ya publicado (flujo: Login -> Crear post -> Publicar post -> Listar posts -> Editar post -> Eliminar post -> Listar posts)
-  * Eliminación exitosa de un post programado para su publicación  (flujo: Login -> Crear post -> Programar publicación del post -> Listar posts -> Editar post -> Eliminar post -> Listar post -> Filtrar posts)
-  * Eliminación exitosa de un post borrador (flujo: Login -> Crear post -> Listar posts -> Editar post -> Eliminar post -> Listar post -> Filtrar posts)
+### Versión 4.41.3
 
-### 3. Editar posts:
-  * Edición exitosa de un post (flujo: Login -> Crear Post -> Publicar post -> Listar posts -> Abrir edición de post -> Editar post -> Actualizar post -> Listar posts)
+| # | Test | Archivo | Notas |
+|---|---|---|---|
+| 1 | Crear post  | Post.feature | |
+| 2 | Crear post programado | Post.feature | |
+| 3 | Borrar post programado | Post.feature | |
+| 4 | Borrar post publicado | Post.feature | |
+| 5 | Editar post publicado | Post.feature | |
+| 6 | Crear post en borrador | Post.feature | |
+| 7 | Borrar post en borrador | Post.feature | |
+| 8 | Borrar página programada | Page.feature | |
+| 9 | Borrar página | Page.feature | |
+| 10 | Crear página programada | Page.feature | |
+| 11 | Crear página en borrador | Page.feature | |
+| 12 | Crear página | Page.feature | |
+| 13 | Cambiar link de Facebook | Setting.feature | |
+| 14 | Cambiar link de Twitter | Setting.feature | |
+| 15 | Cambiar título y descripción del sitio | Setting.feature | |
+| 16 | Crear tag | Tag.feature | |
+| 17 | Editar tag | Tag.feature | |
+| 18 | Borrar tag | Tag.feature | |
+| 19 | Asignar tag a un post | Tag.feature | |
 
-### 4. Crear tag:
-  * Creación exitosa de un tag (flujo: Login -> Lista de tags -> Crear tag -> Guardar tag -> Listar tags)
+### Versión 3.42.0
 
-### 5. Editar tag:
-  * Creación exitosa de un tag (flujo: Login -> Lista de tags -> Crear tag -> Guardar tag -> Listar tags -> Editar tag-> Guardar tag -> Listar tags)
-  
-### 6. Eliminar tag:
-  * Eliminación exitosa de un tag guardado (flujo: Login -> Lista de tags -> Crear tag -> Guardar tag -> Listar tags -> Abrir tag -> Eliminar tag -> Listar tags)
+| # | Test | Archivo | Notas |
+|---|---|---|---|
+| 1 | Borrar post publicado | NewVersionPost.feature | |
+| 2 | Crear post | NewVersionPost.feature | |
+| 3 | Editar post publicado | NewVersionPost.feature | |
+| 4 | Crear página | NewVersionPage.feature | |
+| 5 | Borrar página | NewVersionPage.feature | |
 
-### 7. Asignar tag a un post:
-  * Asignar tag a un post (flujo: Login -> Lista de tags -> Crear tag -> Guardar tag -> Listar posts -> Crear post -> Asignar tag -> Publicar post -> Listar posts)
 
-### 8. Crear page:
-  * Crear page en borrador (flujo: Login -> ir a pages > Crear page -> Listar pages)
-  * Crear page y publicar (flujo: Login -> ir a pages > Crear page -> Publicar -> Ver sitio)
-  * Crear page, publicar y visualizar en lista pages (flujo: Login -> ir a pages > Crear page -> Publicar -> Listar pages)
-  * Crear page programada (flujo: Login -> ir a pages -> crear page -> programar publicacion -> listar pages)
+## Descripción de casos de prueba Kraken
 
-### 9. Editar page:
-  * Editar page (flujo: Login -> ir a pages > Click en la primera pagina -> Editar titulo -> Actualizar -> Listar pages)
 
-### 10. Asignar una featured page:
-  * Asignar una featured page (flujo: Login -> ir a pages > Crear featured page -> Publicar -> Listar pages)
-
-### 11. Cambiar estado de pagina:
-  * Cambiar estado de pagina (flujo: Login -> ir a pages > Crear page -> Publicar -> Listar pages  -> Click en la primera pagina -> Actualizar -> No publicar -> Listar pages)
-
-### 12. Borrar pagina:
-  * Borrar pagina (flujo: Login -> ir a pages > Crear page -> Publicar -> Listar pages  -> Click en la primera pagina ->  Eliminar pagina)
-
-### 13. Cambiar título de página:
-  * Cambiar el nombre del sitio (flujo: Login -> Ir a configuración -> Ir a configuración general -> Reemplazar titulo -> Guardar configuración  -> Revisar título del sitio)
-
-### 14. Cambiar links de redes sociales:
-  * Se puede reemplazar la url de facebook en la configuración de la página (flujo: Login -> Ir a configuración -> Ir a configuración general -> Desplegar opción de cuentas de redes sociales -> Reemplazar url de facebook  -> Guardar cambios -> Ir al sitio -> Comprobar link de facebook del sitio)
-  * Se puede reemplazar la url de twitter en la configuración de la página (flujo: Login -> Ir a configuración -> Ir a configuración general -> Desplegar opción de cuentas de redes sociales -> Reemplazar url de twitter  -> Guardar cambios -> Ir al sitio -> Comprobar link de twitter del sitio)
-
-### 15. Previsualizar pagina:
-  * Previsualizar pagina (flujo: Login -> ir a pages > Crear page -> Previsualizar)
-
-### 16. Visualizar email de usuario:
-  * Previsualizar pagina (flujo: Login -> ir a pages > usuario)
-
-### 17. Visualizar nobre_usuario del usuario:
-  * Visualizar nobre_usuario del usuario (flujo: Login -> ir a pages > usuario)
