@@ -12,6 +12,7 @@ Integrantes:
 * [Reporte de regresión visual ](https://drive.google.com/drive/folders/1OAehaP05M9WhC0HBfRuBZkEoQRQmte70?usp=sharing)
 * [Instrucciones para generar reporte](#instrucciones_reportes)
 * [Incidencias reportadas](https://github.com/CamielaTeam/MISO-PA/issues)
+* [Ventajas y desventajas de las herramientas usadas](#pros_contras)
 
 1.  Funcionalidades de GHOST que se incluyen en las pruebas de la semana 6, cada una tiene uno o varios escenarios
 
@@ -33,6 +34,7 @@ Podrá ver estas funcionalidades específicamente en la [lista de pruebas](#caso
 ####Pre-requisitos:
 * Tener una versión LTS de node reciente (preferiblemente v14.17.3) y una versión compatible de npm. La versión 14.17.3 será util para instalar ambas versiones de ghost
 * Instalar adb en su sistema operativo
+* Tener una versión actualizada de Google Chrome **IMPORTANTE: Los tests de regresión visual se ejecutaron únicamente en este navegador**
 
 ####Configuración de ghost:
 * Instalar la versión 4.41.3 de ghost, para ello se puede ejecutar el siguiente comando
@@ -184,38 +186,33 @@ https://drive.google.com/drive/folders/1OAehaP05M9WhC0HBfRuBZkEoQRQmte70?usp=sha
 
 
 
-#  Kraken vs Cypress
-
-## Cypress
-
+<a name="pros_contras"></a>
+#  VRT Kraken y VRT Cypress (Usando RessembleJS)
+## ResembleJS
 ### Ventajas
-* GUI de ejecución de pruebas y paso a paso de cada escenario
-* Permite el uso de selectores CSS
-* Trazabilidad sencilla al momento de detectar errores en los tests
-* Permite definición de variables globales del proyecto para evitar duplicación de entrada
+* Ofrece un API de comparación de imágenes que se consume de forma sencilla
+* Ofrece información útil sobre la comparación de las imágenes, como por ejemplo diferencial porcentual de las imágenes a comparar
 
 ### Desventajas
-* No soporta de forma nativa el patrón GWD
+* Carece de funcionalidades más robustas enfocadas a VRT 
+* Queda del lado del framework de pruebas la toma de screenshots
+* Requiere la intervención de un humano para definir si la diferencia identificada entre dos imágenes es debido a un error, esto porque no se analiza el DOM sino las imágenes directamente
+
+## Cypress en VRT
+
+### Ventajas
+* Permite la toma de screenshots de forma sencilla
+* Permite la configuración del viewport de forma sencilla
+### Desventajas
 * Ejecución limitada en ciertos navegadores
-* 
 ***
 
-## Kraken
+## Kraken en VRT
 ### Ventajas
-* Soporta el patrón GWD de forma nativa
-* Toma screenshots de cada paso ejecutado
-* Permite el uso de selectores CSS
-* Da facilidades para hacer pruebas de interacción entre usuarios
-* Permite definición de variables globales del proyecto para evitar duplicación de entradas
-* Permite hacer pruebas en aplicaciones Web y Móviles de forma simultánea
-* Se pueden usar selectores y XPath para construir las pruebas
-* Kraken toma capturas de pantalla
+* Toma de screenshots automática
+* Ofrece todas las funcionalidades de configuración de Webdriver.io, entre ellas las referentes al viewport
 
 ### Desventajas
-* Ocasionalmente los errores no brindan información suficiente, nos gustaría que la ventana permaneciera luego de que ocurre un error, actualmente se cierra
-* Curva de aprendizaje de la herramienta debido a faltas en la documentación
-* Se debe instalar adb para instalarlo
-* La ventana no brinda trazabilidad del proceso ejecutado
-* La ejecución de tests está constantemente abierta y ocupa el mouse por lo que no se pueden realizar otras actividades durante la ejecución (Minimizar ventana)
+* La toma de screenshots no se genera con una estructura de carpetas
 ***
 
