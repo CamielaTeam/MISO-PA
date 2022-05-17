@@ -1,4 +1,4 @@
-Feature: Forms with apriori data pool
+Feature: Forms with apriori pseudorandom data pool
 
 I want to validate user input on the forms
 
