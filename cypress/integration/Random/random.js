@@ -28,6 +28,14 @@ Given("I go to the new member page", () => {
 When("I put {string} on the {string} element", (data, selector) => {
   if (data === "a very short string") {
     elementDict[selector]().type(faker.datatype.string(1));
+  } else if (data === "a long string") {
+    elementDict[selector]().type(faker.datatype.string(100));
+  } else if (data === "a very long string") {
+    elementDict[selector]().type(faker.internet.password(500));
+  } else if (data === "a very long any string") {
+    elementDict[selector]().type(faker.datatype.string(500));
+  } else if (data === "an edge long string on member note") {
+    elementDict[selector]().type(faker.internet.password(501));
   } else if (randDict[data]) {
     elementDict[selector]().type(randDict[data]());
   } else {

@@ -35,6 +35,54 @@ Scenario: Create a new member with valid data and short note
   Then I see "Saved" on the screen
 
 @focus
+Scenario: Create a new member with valid data and long note (500 controlled characters)
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I go to the members page
+  And I go to the new member page
+  When I put "a name" on the "member_name" element
+  And I put "a correct email" on the "member_email" element
+  And I put "a very long string" on the "member_note" element
+  And I click the "save_member" element
+  Then I see "Saved" on the screen
+
+@focus
+Scenario: Create a new member with valid data and long note (500 uncontrolled characters)
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I go to the members page
+  And I go to the new member page
+  When I put "a name" on the "member_name" element
+  And I put "a correct email" on the "member_email" element
+  And I put "a very long any string" on the "member_note" element
+  And I click the "save_member" element
+  Then I see "Saved" on the screen
+
+@focus
+Scenario: Create a new member with valid data and long note (501 uncontrolled characters)
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I go to the members page
+  And I go to the new member page
+  When I put "a name" on the "member_name" element
+  And I put "a correct email" on the "member_email" element
+  And I put "an edge long string on member note" on the "member_note" element
+  And I click the "save_member" element
+  Then I see "Maximum: 500 characters. You’ve used 501" on the screen
+
+@focus
+Scenario: Create a new member with valid data and long name
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I go to the members page
+  And I go to the new member page
+  When I put "a long string" on the "member_name" element
+  And I put "a correct email" on the "member_email" element
+  And I put "a very short string" on the "member_note" element
+  And I click the "save_member" element
+  Then I see "Saved" on the screen
+
+@focus
 Scenario: Login with correct data
   Given I open Ghost admin page
   When I put "a correct email" on the "login_email" element
