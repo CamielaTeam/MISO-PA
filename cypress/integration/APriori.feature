@@ -2,6 +2,18 @@ Feature: Forms with apriori data pool
 
   I want to validate user input on the forms
 
+  # @focus
+  # Scenario: Asign a valid site title
+  #   Given I open Ghost admin page
+  #   And I login into the admin page
+  #   And I go to the settings page
+  #   And I go to general settings page
+  #   When I expand site title and description settings
+  #   And I put "154 characters" on the "site_title" element
+  #   And I click save settings
+  #   Then I see "Title is too long" on the screen
+
+
   @focus
   Scenario: Create tag with meta title with more than 300 characters
     Given I open Ghost admin page
@@ -15,6 +27,19 @@ Feature: Forms with apriori data pool
     Then I see "Meta Title cannot be longer than 300 characters." on the screen
 
   @focus
+  Scenario: Create tag with valid meta title
+    Given I open Ghost admin page
+    And I login into the admin page
+    And I go to the tags page
+    When I go to the new tag page
+    And I put "correct tag title" on the "tag_title" element
+    And I expand tag Metadata
+    And I put "valid site title" on the "tag_meta_title" element
+    And I click save tag
+    Then I see "Delete tag" on the screen
+
+
+  @focus
   Scenario: Create tag with meta description with more than 500 characters
     Given I open Ghost admin page
     And I login into the admin page
@@ -23,6 +48,18 @@ Feature: Forms with apriori data pool
     And I put "correct tag title" on the "tag_title" element
     And I expand tag Metadata
     And I put "more than 500 characters" on the "tag_meta_description" element
+    And I click save tag
+    Then I see "Meta Description cannot be longer than 500 characters." on the screen
+
+  @focus
+  Scenario: Create tag with valid meta description
+    Given I open Ghost admin page
+    And I login into the admin page
+    And I go to the tags page
+    When I go to the new tag page
+    And I put "correct tag title" on the "tag_title" element
+    And I expand tag Metadata
+    And I put "correct description" on the "tag_meta_description" element
     And I click save tag
     Then I see "Meta Description cannot be longer than 500 characters." on the screen
 

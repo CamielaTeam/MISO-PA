@@ -12,4 +12,5 @@ export const elementDict = {
   tag_meta_title: pageObj.getTagMetaTitle,
   tag_meta_description: pageObj.getTagMetaDescr,
   tag_canonical_url: pageObj.getTagCanonicalUrl,
+  site_title: pageObj.getSiteTitleInput,
 };
