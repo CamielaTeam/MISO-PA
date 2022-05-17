@@ -15,6 +15,14 @@ Given("I login into the admin page", () => {
   cy.wait(2000);
 });
 
+Given("I go to the members page", () => {
+  steps.clickMembers();
+});
+
+Given("I go to the new member page", () => {
+  steps.clickNewMemberButton();
+});
+
 When("I put {string} on the {string} element", (data, selector) => {
   if (randDict[data]) {
     elementDict[selector]().type(randDict[data]());
