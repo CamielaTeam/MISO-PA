@@ -13,7 +13,6 @@ Scenario: Create tag with empty title
 @focus
 Scenario: Login with correct data pool
   Given I open Ghost admin page
-  When I login into the admin page
   And I put "a correct password" on the "login_password" element
   And I click the "login_button" element
   Then I see "There is no user with that email address." on the screen
