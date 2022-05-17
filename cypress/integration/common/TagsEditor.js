@@ -5,6 +5,8 @@ const selButtonDeleteTag = "button.gh-btn.gh-btn-red.gh-btn-icon";
 const selButtonConfirmDeleteTag =
   ".modal-footer > button.gh-btn.gh-btn-red.gh-btn-icon";
 
+const selInputTagAccentColor = "input[name='accent-color']";
+
 export function setTagName(name) {
   cy.get(selInputName).type(name);
 }
@@ -29,4 +31,16 @@ export function clearTagName() {
 
 export function clearTagDescription() {
   cy.get(selTextAreaDesc).clear();
+}
+
+export function getTagTitleInput() {
+  return cy.get(selInputName);
+}
+
+export function getTagDescriptionInput() {
+  return cy.get(selTextAreaDesc);
+}
+
+export function getTagAccentColorInput() {
+  return cy.get(selInputTagAccentColor);
 }
