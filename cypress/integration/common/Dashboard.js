@@ -42,3 +42,7 @@ export function clickNewPage() {
 export function clickPages() {
   cy.get(selLinkPages).contains("Pages").click();
 }
+
+export function clickMembers() {
+  cy.get(selLinkPages).contains("Members").click();
+}
