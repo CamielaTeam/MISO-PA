@@ -31,6 +31,8 @@ Then("I see {string} on the screen", (text) => {
   expect(cy.contains(text)).to.exist;
 });
 
+// Tags
+
 When("I go to the tags page", () => {
   steps.clickTags();
   cy.wait(2000);
@@ -38,5 +40,10 @@ When("I go to the tags page", () => {
 
 Given("I go to the new tag page", () => {
   steps.clickNewTag();
+  cy.wait(2000);
+});
+
+When("I click save tag", (name, description) => {
+  steps.saveTag();
   cy.wait(2000);
 });
