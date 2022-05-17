@@ -47,3 +47,18 @@ When("I click save tag", (name, description) => {
   steps.saveTag();
   cy.wait(2000);
 });
+
+When("I expand tag Metadata", () => {
+  steps.expandTagMetadata();
+  cy.wait(2000);
+});
+
+When("I expand tag Twitter", () => {
+  steps.expandTagTwitter();
+  cy.wait(2000);
+});
+
+When("I expand tag Facebook", () => {
+  steps.expandTagFacebook();
+  cy.wait(2000);
+});
