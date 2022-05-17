@@ -4,6 +4,8 @@ import { randDict } from "../common/DataPool";
 import { elementDict } from "../common/ElementDictionary";
 import * as steps from "../common/PageObjectIndex";
 
+const { faker } = require("@faker-js/faker");
+
 Given("I open Ghost admin page", () => {
   cy.visit(Cypress.env("url_admin"));
 });
@@ -24,7 +26,9 @@ Given("I go to the new member page", () => {
 });
 
 When("I put {string} on the {string} element", (data, selector) => {
-  if (randDict[data]) {
+  if (data === "a very short string") {
+    elementDict[selector]().type(faker.datatype.string(1));
+  } else if (randDict[data]) {
     elementDict[selector]().type(randDict[data]());
   } else {
     elementDict[selector]().type(data);
