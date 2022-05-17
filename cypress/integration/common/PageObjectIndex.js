@@ -7,6 +7,8 @@ export * from "./TagsList";
 export * from "./PageEditor";
 export * from "./PageList";
 export * from "./Settings";
+export * from "./NewMember";
+export * from "./MembersList";
 export * from "./NewVersionPostEditor";
 export * from "./NewVersionPostList";
 export * from "./NewVersionPageList";

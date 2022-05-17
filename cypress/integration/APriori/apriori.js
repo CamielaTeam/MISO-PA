@@ -84,3 +84,7 @@ When("I click save settings", () => {
   steps.saveSettings();
   cy.wait(2000);
 });
+When("I click save tag", (name, description) => {
+  steps.saveTag();
+  cy.wait(2000);
+});
