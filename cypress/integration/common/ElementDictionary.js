@@ -11,4 +11,5 @@ export const elementDict = {
   save_member: pageObj.getSaveMemberButton,
   member_email: pageObj.getMemberEmailInput,
   member_note: pageObj.getMemberNoteInput,
+  member_labels: pageObj.getMemberLabelInput,
 };

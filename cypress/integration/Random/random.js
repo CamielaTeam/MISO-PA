@@ -1,8 +1,8 @@
 import { Then, Given, When, After } from "cypress-cucumber-preprocessor/steps";
 
 import { randDict } from "../common/DataPool";
-import { elementDict } from "../common/ElementDictionary";
 import * as steps from "../common/PageObjectIndex";
+import { elementDict } from "../common/ElementDictionary";
 
 const { faker } = require("@faker-js/faker");
 
@@ -36,6 +36,16 @@ When("I put {string} on the {string} element", (data, selector) => {
     elementDict[selector]().type(faker.datatype.string(500));
   } else if (data === "an edge long string on member note") {
     elementDict[selector]().type(faker.internet.password(501));
+  } else if (data === "an edge long string on member name") {
+    elementDict[selector]().type(faker.internet.password(192));
+  } else if (data === "an edge equal string on member name") {
+    elementDict[selector]().type(faker.internet.password(191));
+  } else if (data === "a name starting with blankspace") {
+    elementDict[selector]().type(
+      faker.internet.password(null, null, null, "  ")
+    );
+  } else if (data === "a very long email") {
+    elementDict[selector]().type(faker.internet.password(100) + "@example.com");
   } else if (randDict[data]) {
     elementDict[selector]().type(randDict[data]());
   } else {
@@ -49,6 +59,10 @@ When("I click the {string} element", (selector) => {
 
 Then("I see {string} on the screen", (text) => {
   expect(cy.contains(text)).to.exist;
+});
+
+Then("I don't see {string} on the screen", (text) => {
+  expect(cy.contains(text)).to.not.exist;
 });
 
 When("I go to the tags page", () => {

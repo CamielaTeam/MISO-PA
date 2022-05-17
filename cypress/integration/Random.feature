@@ -3,7 +3,173 @@ Feature: Forms with random runtime data
 I want to validate user input on the forms
 
 @focus
-Scenario: Try to create a new member with empty data
+Scenario: Create a new member with valid data and a numeric note
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I go to the members page
+  And I go to the new member page
+  When I put "a name" on the "member_name" element
+  And I put "a correct email" on the "member_email" element
+  And I put "a number" on the "member_note" element
+  And I click the "save_member" element
+  Then I see "Saved" on the screen
+
+@focus
+Scenario: Create a new member with an email string in labels field
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I go to the members page
+  And I go to the new member page
+  When I put "a name" on the "member_name" element
+  And I put "a correct email" on the "member_email" element
+  And I put "a correct email" on the "member_labels" element
+  And I click the "save_member" element
+  Then I see "Saved" on the screen
+
+@focus
+Scenario: Create a new member with a very long string in labels field (uncontrolled string)
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I go to the members page
+  And I go to the new member page
+  When I put "a name" on the "member_name" element
+  And I put "a correct email" on the "member_email" element
+  And I put "a very long any string" on the "member_labels" element
+  And I click the "save_member" element
+  Then I see "Saved" on the screen
+
+@focus
+Scenario: Create a new member with numeric only string in labels field
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I go to the members page
+  And I go to the new member page
+  When I put "a name" on the "member_name" element
+  And I put "a correct email" on the "member_email" element
+  And I put "a number" on the "member_labels" element
+  And I click the "save_member" element
+  Then I see "Saved" on the screen
+
+@focus
+Scenario: Create a new member with a verly long string in labels field
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I go to the members page
+  And I go to the new member page
+  When I put "a name" on the "member_name" element
+  And I put "a correct email" on the "member_email" element
+  And I put "a very long string" on the "member_labels" element
+  And I click the "save_member" element
+  Then I see "Saved" on the screen
+
+@focus
+Scenario: Create a new member with numeric only string in email field
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I go to the members page
+  And I go to the new member page
+  When I put "a name" on the "member_name" element
+  And I put "a number" on the "member_email" element
+  And I click the "save_member" element
+  Then I see "Invalid Email" on the screen
+
+@focus
+Scenario: Create a new member with valid data and a very long email
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I go to the members page
+  And I go to the new member page
+  When I put "a name" on the "member_name" element
+  And I put "a very long email" on the "member_email" element
+  And I click the "save_member" element
+  Then I see "Invalid Email" on the screen
+
+@focus
+Scenario: Create a new member with numeric name
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I go to the members page
+  And I go to the new member page
+  When I put "a number" on the "member_name" element
+  And I put "a correct email" on the "member_email" element
+  And I put "a very short string" on the "member_note" element
+  And I click the "save_member" element
+  Then I don't see "Saved" on the screen
+
+@focus
+Scenario: Create a new member with valid data and very short name
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I go to the members page
+  And I go to the new member page
+  When I put "a very short string" on the "member_name" element
+  And I put "a correct email" on the "member_email" element
+  And I put "a very short string" on the "member_note" element
+  And I click the "save_member" element
+  Then I see "Saved" on the screen
+
+@focus
+Scenario: Create a new member with valid data and a long name (192 controlled characters)
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I go to the members page
+  And I go to the new member page
+  When I put "an edge long string on member name" on the "member_name" element
+  And I put "a correct email" on the "member_email" element
+  And I put "a very short string" on the "member_note" element
+  And I click the "save_member" element
+  Then I see "Name cannot be longer than 191 characters." on the screen
+
+@focus
+Scenario: Create a new member with valid data and long name (191 controlled characters)
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I go to the members page
+  And I go to the new member page
+  When I put "an edge equal string on member name" on the "member_name" element
+  And I put "a correct email" on the "member_email" element
+  And I put "a very short string" on the "member_note" element
+  And I click the "save_member" element
+  Then I see "Saved" on the screen
+
+@focus
+Scenario: Create a new member with valid data and long name
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I go to the members page
+  And I go to the new member page
+  When I put "a long string" on the "member_name" element
+  And I put "a correct email" on the "member_email" element
+  And I put "a very short string" on the "member_note" element
+  And I click the "save_member" element
+  Then I see "Saved" on the screen
+
+@focus
+Scenario: Create a new member with valid data and a name starting with blankspace
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I go to the members page
+  And I go to the new member page
+  When I put "a name starting with blankspace" on the "member_name" element
+  And I put "a correct email" on the "member_email" element
+  And I put "a very short string" on the "member_note" element
+  And I click the "save_member" element
+  Then I see "Saved" on the screen
+
+@focus
+Scenario: Create a new member with valid data and a very long name
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I go to the members page
+  And I go to the new member page
+  When I put "a very long string" on the "member_name" element
+  And I put "a correct email" on the "member_email" element
+  And I put "a very short string" on the "member_note" element
+  And I click the "save_member" element
+  Then I see "Name cannot be longer than 191 characters." on the screen
+
+@focus
+Scenario: Create a new member with empty data
   Given I open Ghost admin page
   And I login into the admin page
   And I go to the members page
@@ -69,30 +235,6 @@ Scenario: Create a new member with valid data and long note (501 uncontrolled ch
   And I put "an edge long string on member note" on the "member_note" element
   And I click the "save_member" element
   Then I see "Maximum: 500 characters. You’ve used 501" on the screen
-
-@focus
-Scenario: Create a new member with valid data and long name
-  Given I open Ghost admin page
-  And I login into the admin page
-  And I go to the members page
-  And I go to the new member page
-  When I put "a long string" on the "member_name" element
-  And I put "a correct email" on the "member_email" element
-  And I put "a very short string" on the "member_note" element
-  And I click the "save_member" element
-  Then I see "Saved" on the screen
-
-@focus
-Scenario: Create a new member with valid data and a very long name
-  Given I open Ghost admin page
-  And I login into the admin page
-  And I go to the members page
-  And I go to the new member page
-  When I put "a very long string" on the "member_name" element
-  And I put "a correct email" on the "member_email" element
-  And I put "a very short string" on the "member_note" element
-  And I click the "save_member" element
-  Then I see "Name cannot be longer than 191 characters." on the screen
 
 @focus
 Scenario: Login with correct data

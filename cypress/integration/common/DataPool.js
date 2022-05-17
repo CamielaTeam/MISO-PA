@@ -40,4 +40,5 @@ export const randDict = {
   "a correct password": faker.internet.password,
   "an incorrect email": faker.datatype.string,
   "a name": faker.name.firstName,
+  "a number": faker.datatype.number,
 };
