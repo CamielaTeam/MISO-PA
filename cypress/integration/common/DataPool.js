@@ -24,3 +24,9 @@ export const pseudoRandDict = {
     "                    "
   ),
 };
+
+export const randDict = {
+  "a correct email": faker.internet.email,
+  "a correct password": faker.internet.password,
+  "an incorrect email": faker.datatype.string,
+};
