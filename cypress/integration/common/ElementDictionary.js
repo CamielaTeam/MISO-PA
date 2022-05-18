@@ -13,4 +13,6 @@ export const elementDict = {
   member_note: pageObj.getMemberNoteInput,
   member_labels: pageObj.getMemberLabelInput,
   search_input: pageObj.getSearchInput,
+  save_profile: pageObj.getSaveButton,
+  profile_name_input: pageObj.getProfileNameInput,
 };

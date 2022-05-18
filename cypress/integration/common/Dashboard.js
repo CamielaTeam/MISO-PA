@@ -13,7 +13,6 @@ const selEditProfileOption = "a.dropdown-item";
 export function clickProfileEdit() {
   cy.get(selProfileMenu).click();
   cy.get(selEditProfileOption).contains("Your profile").click();
-  cy.wait(3000);
 }
 
 export function getSearchInput() {

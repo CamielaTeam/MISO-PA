@@ -3,10 +3,42 @@ Feature: Forms with random runtime data
 I want to validate user input on the forms
 
 @focus
-Scenario: Testing
+Scenario: Edit profile name with email string
   Given I open Ghost admin page
   And I login into the admin page
   And I click on the edit profile option
+  And I clear the field "profile_name_input"
+  And I put "a correct email" on the "profile_name_input" element
+  And I click the "save_profile" element
+  Then I don't see "Saved" on the screen
+
+@focus
+Scenario: Edit profile name with numeric string
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I click on the edit profile option
+  And I clear the field "profile_name_input"
+  And I put "a number" on the "profile_name_input" element
+  And I click the "save_profile" element
+  Then I don't see "Saved" on the screen
+
+@focus
+Scenario: Edit profile name with short string
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I click on the edit profile option
+  And I clear the field "profile_name_input"
+  And I put "a very short string" on the "profile_name_input" element
+  And I click the "save_profile" element
+  Then I see "Saved" on the screen
+
+@focus
+Scenario: Edit profile without touching data
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I click on the edit profile option
+  And I click the "save_profile" element
+  Then I see "Saved" on the screen
 
 @focus
 Scenario: Search a numeric string in general view

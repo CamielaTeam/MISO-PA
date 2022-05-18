@@ -27,29 +27,33 @@ Given("I go to the new member page", () => {
 
 When("I put {string} on the {string} element", (data, selector) => {
   if (data === "a very short string") {
-    elementDict[selector]().type(faker.datatype.string(1));
+    elementDict[selector]().type(faker.datatype.string(1), { force: true });
   } else if (data === "a long string") {
-    elementDict[selector]().type(faker.datatype.string(100));
+    elementDict[selector]().type(faker.datatype.string(100), { force: true });
   } else if (data === "a very long string") {
-    elementDict[selector]().type(faker.internet.password(500));
+    elementDict[selector]().type(faker.internet.password(500), { force: true });
   } else if (data === "a very long any string") {
-    elementDict[selector]().type(faker.datatype.string(500));
+    elementDict[selector]().type(faker.datatype.string(500), { force: true });
   } else if (data === "an edge long string on member note") {
-    elementDict[selector]().type(faker.internet.password(501));
+    elementDict[selector]().type(faker.internet.password(501), { force: true });
   } else if (data === "an edge long string on member name") {
-    elementDict[selector]().type(faker.internet.password(192));
+    elementDict[selector]().type(faker.internet.password(192), { force: true });
   } else if (data === "an edge equal string on member name") {
-    elementDict[selector]().type(faker.internet.password(191));
+    elementDict[selector]().type(faker.internet.password(191), { force: true });
   } else if (data === "a name starting with blankspace") {
     elementDict[selector]().type(
-      faker.internet.password(null, null, null, "  ")
+      faker.internet.password(null, null, null, "  "),
+      { force: true }
     );
   } else if (data === "a very long email") {
-    elementDict[selector]().type(faker.internet.password(100) + "@example.com");
+    elementDict[selector]().type(
+      faker.internet.password(100) + "@example.com",
+      { force: true }
+    );
   } else if (randDict[data]) {
-    elementDict[selector]().type(randDict[data]());
+    elementDict[selector]().type(randDict[data](), { force: true });
   } else {
-    elementDict[selector]().type(data);
+    elementDict[selector]().type(data, { force: true });
   }
 });
 
@@ -63,6 +67,10 @@ When("I click on the search button", () => {
 
 When("I click on the edit profile option", () => {
   steps.clickProfileEdit();
+});
+
+When("I clear the field {string}", (selector) => {
+  elementDict[selector]().clear();
 });
 
 Then("I see {string} on the screen", (text) => {
