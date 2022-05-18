@@ -6,6 +6,8 @@ import { elementDict } from "../common/ElementDictionary";
 
 const { faker } = require("@faker-js/faker");
 
+const { faker } = require("@faker-js/faker");
+
 Given("I open Ghost admin page", () => {
   cy.visit(Cypress.env("url_admin"));
 });
