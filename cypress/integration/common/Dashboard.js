@@ -5,6 +5,23 @@ const selLinkPages = "a.ember-view";
 const selHeadingSiteTitle = ".site-title";
 const selParagraphSiteDescription = ".site-header-content>p";
 const selDivMenuSiteTitle = ".gh-nav-menu-details-sitetitle";
+const selSearchButton = "button.gh-nav-btn-search";
+const selSearchInput = "input.gh-input-with-select-input";
+const selProfileMenu = "div.gh-user-avatar.relative";
+const selEditProfileOption = "a.dropdown-item";
+
+export function clickProfileEdit() {
+  cy.get(selProfileMenu).click();
+  cy.get(selEditProfileOption).contains("Your profile").click();
+}
+
+export function getSearchInput() {
+  return cy.get(selSearchInput);
+}
+
+export function clickSearchButton() {
+  cy.get(selSearchButton).click();
+}
 
 export function clickNewPost() {
   cy.get(selLinkNewPost).click();
@@ -41,4 +58,8 @@ export function clickNewPage() {
 
 export function clickPages() {
   cy.get(selLinkPages).contains("Pages").click();
+}
+
+export function clickMembers() {
+  cy.get(selLinkPages).contains("Members").click();
 }
