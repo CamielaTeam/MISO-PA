@@ -12,4 +12,5 @@ export const elementDict = {
   member_email: pageObj.getMemberEmailInput,
   member_note: pageObj.getMemberNoteInput,
   member_labels: pageObj.getMemberLabelInput,
+  search_input: pageObj.getSearchInput,
 };

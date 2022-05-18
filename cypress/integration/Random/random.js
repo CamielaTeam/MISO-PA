@@ -57,6 +57,10 @@ When("I click the {string} element", (selector) => {
   elementDict[selector]().click();
 });
 
+When("I click on the search button", () => {
+  steps.clickSearchButton();
+});
+
 Then("I see {string} on the screen", (text) => {
   expect(cy.contains(text)).to.exist;
 });

@@ -5,6 +5,16 @@ const selLinkPages = "a.ember-view";
 const selHeadingSiteTitle = ".site-title";
 const selParagraphSiteDescription = ".site-header-content>p";
 const selDivMenuSiteTitle = ".gh-nav-menu-details-sitetitle";
+const selSearchButton = "button.gh-nav-btn-search";
+const selSearchInput = "input.gh-input-with-select-input";
+
+export function getSearchInput() {
+  return cy.get(selSearchInput);
+}
+
+export function clickSearchButton() {
+  cy.get(selSearchButton).click();
+}
 
 export function clickNewPost() {
   cy.get(selLinkNewPost).click();

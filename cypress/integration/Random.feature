@@ -3,6 +3,50 @@ Feature: Forms with random runtime data
 I want to validate user input on the forms
 
 @focus
+Scenario: Search a numeric string in general view
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I click on the search button
+  When I put "a number" on the "search_input" element
+  And I click the "search_input" element
+
+@focus
+Scenario: Search a normal string in general view
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I click on the search button
+  When I put "a name" on the "search_input" element
+  And I click the "search_input" element
+
+@focus
+Scenario: Search a very long string in general view (uncontrolled)
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I click on the search button
+  When I put "a very long any string" on the "search_input" element
+  And I click the "search_input" element
+
+@focus
+Scenario: Search a very long string in general view (controlled)
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I click on the search button
+  When I put "a very long string" on the "search_input" element
+  And I click the "search_input" element
+
+@focus
+Scenario: Create a new member with valid data and an email string in note field
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I go to the members page
+  And I go to the new member page
+  When I put "a name" on the "member_name" element
+  And I put "a correct email" on the "member_email" element
+  And I put "a correct email" on the "member_note" element
+  And I click the "save_member" element
+  Then I see "Saved" on the screen
+
+@focus
 Scenario: Create a new member with valid data and a numeric note
   Given I open Ghost admin page
   And I login into the admin page
