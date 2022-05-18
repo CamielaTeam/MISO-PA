@@ -24,4 +24,5 @@ export const elementDict = {
   profile_slug_input: pageObj.getUserSlug,
   profile_email_input: pageObj.getUserEmailInput,
   profile_location_input: pageObj.getUserLocationInput,
+  profile_website_input: pageObj.getUserWebsiteInput,
 };

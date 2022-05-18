@@ -3,6 +3,11 @@ const selNameInput = "#user-name";
 const selUserSlug = "#user-slug";
 const selEmailInput = "#user-email";
 const selUserLocation = "#user-location";
+const selUserWebsiteInput = "#user-website";
+
+export function getUserWebsiteInput() {
+  return cy.get(selUserWebsiteInput);
+}
 
 export function getUserLocationInput() {
   return cy.get(selUserLocation);
