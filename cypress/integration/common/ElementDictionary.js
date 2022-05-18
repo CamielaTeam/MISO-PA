@@ -12,6 +12,8 @@ export const elementDict = {
   tag_meta_title: pageObj.getTagMetaTitle,
   tag_meta_description: pageObj.getTagMetaDescr,
   tag_canonical_url: pageObj.getTagCanonicalUrl,
+  tag_twitter_title: pageObj.getTwitterMetaTitle,
+  tag_facebook_title: pageObj.getTagFacebookTitle,
   site_title: pageObj.getSiteTitleInput,
   member_name: pageObj.getMemberNameInput,
   save_member: pageObj.getSaveMemberButton,

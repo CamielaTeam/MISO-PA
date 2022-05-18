@@ -11,6 +11,8 @@ const selExpandButton = ".gh-btn.gh-btn-expand";
 const selInputTagMetaTitle = "input[name='metaTitle'].gh-input";
 const selInputTagMetaDescr = "textarea[name='metaDescription'].gh-input";
 const selInputTagCanonicalUrl = "input[name='canonicalUrl'].gh-input";
+const selInputTwitterMetaTitle = "input[name='twitterTitle'].gh-input";
+const selInputTagFacebookTitle = "input[name='ogTitle'].gh-input";
 
 export function setTagName(name) {
   cy.get(selInputName).type(name);
@@ -85,4 +87,12 @@ export function getTagMetaDescr() {
 
 export function getTagCanonicalUrl() {
   return cy.get(selInputTagCanonicalUrl);
+}
+
+export function getTwitterMetaTitle() {
+  return cy.get(selInputTwitterMetaTitle);
+}
+
+export function getTagFacebookTitle() {
+  return cy.get(selInputTagFacebookTitle);
 }
