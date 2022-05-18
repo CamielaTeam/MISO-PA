@@ -82,9 +82,15 @@ Given("I expand site title and description settings", () => {
 
 When("I click save settings", () => {
   steps.saveSettings();
-  cy.wait(2000);
 });
-When("I click save tag", (name, description) => {
+
+When("I click save tag", () => {
   steps.saveTag();
   cy.wait(2000);
+});
+
+When("I clear the site title", () => {
+  steps.clearSiteTitle();
+  cy.wait(2000);
+  steps.scrollToTop();
 });

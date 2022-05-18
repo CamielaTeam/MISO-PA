@@ -5,7 +5,8 @@ const selButtonSave = "button.gh-btn.gh-btn-primary.gh-btn-icon.ember-view";
 const selExpandButton = ".gh-expandable-header>button";
 const selLinkFacebook = ".gh-social-facebook";
 const selLinkTwitter = ".gh-social-twitter";
-const selSiteTitleDescInput = ".ember-text-field.gh-input.ember-view";
+const selSiteTitleDescInput = ".form-group.ember-view:first-child > input";
+const selCanvas = ".gh-canvas";
 
 export function clickSettings() {
   cy.get(selLinkSettings).click();
@@ -59,6 +60,7 @@ export function setSiteDescription(description) {
 
 export function saveSettings() {
   cy.get(selButtonSave).click();
+  cy.wait(1000);
 }
 
 export function clearFacebookUrl() {
@@ -105,5 +107,13 @@ export function clickExpandSiteTitleButton() {
 }
 
 export function getSiteTitleInput() {
-  cy.get(selSiteTitleDescInput).first();
+  return cy.get(selSiteTitleDescInput);
+}
+
+export function clearSiteTitle() {
+  cy.get(selSiteTitleDescInput).clear();
+}
+
+export function scrollToTop() {
+  cy.get(selCanvas).scrollTo("top");
 }
