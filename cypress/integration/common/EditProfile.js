@@ -2,6 +2,11 @@ const selSaveButton = "button.gh-btn.gh-btn-primary.gh-btn-icon.ember-view";
 const selNameInput = "#user-name";
 const selUserSlug = "#user-slug";
 const selEmailInput = "#user-email";
+const selUserLocation = "#user-location";
+
+export function getUserLocationInput() {
+  return cy.get(selUserLocation);
+}
 
 export function getSaveButton() {
   return cy.get(selSaveButton);

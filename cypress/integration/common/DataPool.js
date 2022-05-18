@@ -58,4 +58,10 @@ export const pseudoRandDict = {
   "a very long string": faker.internet.password(500),
   "a very long any string": faker.datatype.string(500),
   "a very long email address": faker.internet.password(500) + "@example.com",
+  "an email starting with blankspace": " " + faker.internet.email(),
+  "a blankspace string": " ",
+  "a very short string": faker.datatype.string(1),
+  "a number": faker.datatype.number(),
+  "a string": faker.internet.password(),
+  "a string with whitespace": " " + faker.internet.password(),
 };
