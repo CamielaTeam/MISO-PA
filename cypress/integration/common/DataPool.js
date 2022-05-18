@@ -38,6 +38,14 @@ export const dataDict = {
   "facebook title": "The recommended title should have 100 characters",
 };
 
+export const randDict = {
+  "a correct email": faker.internet.email,
+  "a correct password": faker.internet.password,
+  "an incorrect email": faker.datatype.string,
+  "a name": faker.name.firstName,
+  "a number": faker.datatype.number,
+};
+
 export const pseudoRandDict = {
   "a correct email": faker.internet.email(),
   "a correct password": faker.internet.password(),
@@ -48,12 +56,14 @@ export const pseudoRandDict = {
     null,
     "                    "
   ),
-};
-
-export const randDict = {
-  "a correct email": faker.internet.email,
-  "a correct password": faker.internet.password,
-  "an incorrect email": faker.datatype.string,
-  "a name": faker.name.firstName,
-  "a number": faker.datatype.number,
+  "an incorrect email": faker.name.firstName(),
+  "a very long string": faker.internet.password(500),
+  "a very long any string": faker.datatype.string(500),
+  "a very long email address": faker.internet.password(500) + "@example.com",
+  "an email starting with blankspace": " " + faker.internet.email(),
+  "a blankspace string": " ",
+  "a very short string": faker.datatype.string(1),
+  "a number": faker.datatype.number(),
+  "a string": faker.internet.password(),
+  "a string with whitespace": " " + faker.internet.password(),
 };

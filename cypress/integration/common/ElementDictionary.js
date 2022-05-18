@@ -24,4 +24,10 @@ export const elementDict = {
   save_profile: pageObj.getSaveButton,
   profile_name_input: pageObj.getProfileNameInput,
   profile_slug_input: pageObj.getUserSlug,
+  profile_email_input: pageObj.getUserEmailInput,
+  profile_location_input: pageObj.getUserLocationInput,
+  profile_website_input: pageObj.getUserWebsiteInput,
+  profile_bio_input: pageObj.getUserBioInput,
+  profile_twitter_input: pageObj.getUserTwitterInput,
+  profile_facebook_input: pageObj.getUserFacebookInput,
 };
