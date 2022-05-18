@@ -7,6 +7,14 @@ const selParagraphSiteDescription = ".site-header-content>p";
 const selDivMenuSiteTitle = ".gh-nav-menu-details-sitetitle";
 const selSearchButton = "button.gh-nav-btn-search";
 const selSearchInput = "input.gh-input-with-select-input";
+const selProfileMenu = "div.gh-user-avatar.relative";
+const selEditProfileOption = "a.dropdown-item";
+
+export function clickProfileEdit() {
+  cy.get(selProfileMenu).click();
+  cy.get(selEditProfileOption).contains("Your profile").click();
+  cy.wait(3000);
+}
 
 export function getSearchInput() {
   return cy.get(selSearchInput);

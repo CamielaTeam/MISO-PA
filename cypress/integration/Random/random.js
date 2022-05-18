@@ -61,6 +61,10 @@ When("I click on the search button", () => {
   steps.clickSearchButton();
 });
 
+When("I click on the edit profile option", () => {
+  steps.clickProfileEdit();
+});
+
 Then("I see {string} on the screen", (text) => {
   expect(cy.contains(text)).to.exist;
 });

@@ -3,6 +3,12 @@ Feature: Forms with random runtime data
 I want to validate user input on the forms
 
 @focus
+Scenario: Testing
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I click on the edit profile option
+
+@focus
 Scenario: Search a numeric string in general view
   Given I open Ghost admin page
   And I login into the admin page
