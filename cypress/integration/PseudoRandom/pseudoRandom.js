@@ -52,3 +52,13 @@ Given("I go to the new tag page", () => {
 Then("I don't see {string} on the screen", (text) => {
   expect(cy.contains(text)).to.not.exist;
 });
+
+// Members
+
+Given("I go to the members page", () => {
+  steps.clickMembers();
+});
+
+Given("I go to the new member page", () => {
+  steps.clickNewMemberButton();
+});

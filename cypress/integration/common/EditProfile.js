@@ -4,6 +4,9 @@ const selUserSlug = "#user-slug";
 const selEmailInput = "#user-email";
 const selUserLocation = "#user-location";
 const selUserWebsiteInput = "#user-website";
+const selFacebookInput = "#user-facebook";
+const selTwitterInput = "#user-twitter";
+const selBioInput = "#user-bio";
 
 export function getUserWebsiteInput() {
   return cy.get(selUserWebsiteInput);
@@ -27,4 +30,16 @@ export function getUserSlug() {
 
 export function getUserEmailInput() {
   return cy.get(selEmailInput);
+}
+
+export function getUserBioInput() {
+  return cy.get(selBioInput);
+}
+
+export function getUserTwitterInput() {
+  return cy.get(selTwitterInput);
+}
+
+export function getUserFacebookInput() {
+  return cy.get(selFacebookInput);
 }
