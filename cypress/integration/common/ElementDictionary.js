@@ -22,4 +22,5 @@ export const elementDict = {
   save_profile: pageObj.getSaveButton,
   profile_name_input: pageObj.getProfileNameInput,
   profile_slug_input: pageObj.getUserSlug,
+  profile_email_input: pageObj.getUserEmailInput,
 };

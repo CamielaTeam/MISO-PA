@@ -36,18 +36,6 @@ export const dataDict = {
   "invalid hex": "xyzxyz",
 };
 
-export const pseudoRandDict = {
-  "a correct email": faker.internet.email(),
-  "a correct password": faker.internet.password(),
-  "a very long password": faker.internet.password(100),
-  "a password with whitespace": faker.internet.password(
-    null,
-    null,
-    null,
-    "                    "
-  ),
-};
-
 export const randDict = {
   "a correct email": faker.internet.email,
   "a correct password": faker.internet.password,
@@ -66,4 +54,8 @@ export const pseudoRandDict = {
     null,
     "                    "
   ),
+  "an incorrect email": faker.name.firstName(),
+  "a very long string": faker.internet.password(500),
+  "a very long any string": faker.datatype.string(500),
+  "a very long email address": faker.internet.password(500) + "@example.com",
 };
