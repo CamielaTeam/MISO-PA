@@ -3,6 +3,86 @@ Feature: Forms with random runtime data
 I want to validate user input on the forms
 
 @focus
+Scenario: Edit profile user slug with a string starting with blankspace
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I click on the edit profile option
+  And I clear the field "profile_slug_input"
+  And I put "a name starting with blankspace" on the "profile_slug_input" element
+  And I click the "save_profile" element
+  Then I don't see "Saved" on the screen
+
+@focus
+Scenario: Edit profile user slug with very long string (uncontrolled)
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I click on the edit profile option
+  And I clear the field "profile_slug_input"
+  And I put "a very long any string" on the "profile_slug_input" element
+  And I click the "save_profile" element
+  Then I see "Saved" on the screen
+
+@focus
+Scenario: Edit profile user slug with very long string (controlled)
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I click on the edit profile option
+  And I clear the field "profile_slug_input"
+  And I put "a very long string" on the "profile_slug_input" element
+  And I click the "save_profile" element
+  Then I see "Saved" on the screen
+
+@focus
+Scenario: Edit profile user slug with email string
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I click on the edit profile option
+  And I clear the field "profile_slug_input"
+  And I put "a correct email" on the "profile_slug_input" element
+  And I click the "save_profile" element
+  Then I don't see "Saved" on the screen
+
+@focus
+Scenario: Edit profile user slug with numeric string
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I click on the edit profile option
+  And I clear the field "profile_slug_input"
+  And I put "a number" on the "profile_slug_input" element
+  And I click the "save_profile" element
+  Then I see "Saved" on the screen
+
+@focus
+Scenario: Edit profile user slug with short string
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I click on the edit profile option
+  And I clear the field "profile_slug_input"
+  And I put "a very short string" on the "profile_slug_input" element
+  And I click the "save_profile" element
+  Then I see "Saved" on the screen
+
+@focus
+Scenario: Edit profile name with very long string (uncontrolled)
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I click on the edit profile option
+  And I clear the field "profile_name_input"
+  And I put "a very long any string" on the "profile_name_input" element
+  And I click the "save_profile" element
+  Then I see "Saved" on the screen
+
+@focus
+Scenario: Edit profile name with very long string (controlled)
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I click on the edit profile option
+  And I clear the field "profile_name_input"
+  And I put "a very long string" on the "profile_name_input" element
+  And I click the "save_profile" element
+  Then I see "Saved" on the screen
+
+@focus
 Scenario: Edit profile name with email string
   Given I open Ghost admin page
   And I login into the admin page
@@ -29,6 +109,16 @@ Scenario: Edit profile name with short string
   And I click on the edit profile option
   And I clear the field "profile_name_input"
   And I put "a very short string" on the "profile_name_input" element
+  And I click the "save_profile" element
+  Then I see "Saved" on the screen
+
+@focus
+Scenario: Edit profile name with a name starting with blankspace
+  Given I open Ghost admin page
+  And I login into the admin page
+  And I click on the edit profile option
+  And I clear the field "profile_name_input"
+  And I put "a name starting with blankspace" on the "profile_name_input" element
   And I click the "save_profile" element
   Then I see "Saved" on the screen
 

@@ -15,4 +15,5 @@ export const elementDict = {
   search_input: pageObj.getSearchInput,
   save_profile: pageObj.getSaveButton,
   profile_name_input: pageObj.getProfileNameInput,
+  profile_slug_input: pageObj.getUserSlug,
 };
