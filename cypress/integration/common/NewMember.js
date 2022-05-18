@@ -1,6 +1,7 @@
 const name = "#member-name";
 const email = "#member-email";
 const note = "#member-note";
+const labels = "input.ember-power-select-trigger-multiple-input";
 const saveMemberButton = "button.gh-btn.gh-btn-primary.gh-btn-icon.ember-view";
 
 export function getMemberNameInput() {
@@ -13,6 +14,10 @@ export function getMemberEmailInput() {
 
 export function getMemberNoteInput() {
   return cy.get(note);
+}
+
+export function getMemberLabelInput() {
+  return cy.get(labels);
 }
 
 export function getSaveMemberButton() {
