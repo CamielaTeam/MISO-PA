@@ -17,7 +17,10 @@ Given("I login into the admin page", () => {
 
 When("I put {string} on the {string} element", (data, selector) => {
   if (pseudoRandDict[data]) {
-    elementDict[selector]().type(pseudoRandDict[data], { force: true });
+    elementDict[selector]().type(pseudoRandDict[data], {
+      force: true,
+      parseSpecialCharSequences: false,
+    });
   } else {
     elementDict[selector]().type(data, { force: true });
   }
