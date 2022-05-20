@@ -92,7 +92,6 @@ When("I modify the twitter url with {string}", (twitterUrl) => {
   cy.wait(2000);
 });
 
-
 Then(`I can access to {string} facebook url`, (facebookUrl) => {
   cy.visit(Cypress.env("ghost_url"));
   const siteTitle = getFacebookLink();
