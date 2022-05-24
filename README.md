@@ -11,6 +11,7 @@ Integrantes:
 * [Pruebas exploratorias](#pruebas_exploratorias)
 * [Pruebas e2e](#e2e)
 * [Pruebas de regresión visual](#visual_regression)
+* [Pruebas de validación de datos](#validacion_datos)
 * [Incidencias reportadas](https://github.com/CamielaTeam/MISO-PA/issues)
 
 ## Consideraciones
