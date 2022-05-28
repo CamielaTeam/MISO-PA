@@ -3,6 +3,44 @@ Feature: Forms with apriori data pool
   I want to validate user input on the forms
 
   @focus
+  Scenario: Login with short password
+    Given I open Ghost admin page
+    When I put "a correct email" on the "login_email" element
+    And I put "a short password" on the "login_password" element
+    And I click the "login_button" element
+    Then I see "There is no user with that email address." on the screen
+
+  @focus
+  Scenario: Login with long password
+    Given I open Ghost admin page
+    When I put "a correct email" on the "login_email" element
+    And I put "a long password" on the "login_password" element
+    And I click the "login_button" element
+    Then I see "There is no user with that email address." on the screen
+
+  @focus
+  Scenario: Create tag with valid meta title
+    Given I open Ghost admin page
+    And I login into the admin page
+    And I go to the tags page
+    When I go to the new tag page
+    And I put "correct tag title" on the "tag_title" element
+    And I expand tag Metadata
+    And I put "valid site title" on the "tag_meta_title" element
+    And I click save tag
+    Then I see "Delete tag" on the screen
+
+  @focus
+  Scenario: Create tag with whitespaces title
+    Given I open Ghost admin page
+    And I login into the admin page
+    And I go to the tags page
+    When I go to the new tag page
+    And I put "whitespaces" on the "tag_title" element
+    And I click save tag
+    Then I see "You must specify a name for the tag." on the screen
+
+  @focus
   Scenario: Create tag with valid twitter title
     Given I open Ghost admin page
     And I login into the admin page
@@ -27,18 +65,6 @@ Feature: Forms with apriori data pool
     Then I see "Delete tag" on the screen
 
   @focus
-  Scenario: Asign a valid site title
-    Given I open Ghost admin page
-    And I login into the admin page
-    And I go to the settings page
-    And I go to general settings page
-    When I expand site title and description settings
-    And I clear the site title
-    And I put "valid site title" on the "site_title" element
-    And I click save settings
-    Then I see "Saved" on the screen
-
-  @focus
   Scenario: Create tag with meta title with numbers
     Given I open Ghost admin page
     And I login into the admin page
@@ -61,20 +87,6 @@ Feature: Forms with apriori data pool
     And I put "329 characters" on the "tag_meta_title" element
     And I click save tag
     Then I see "Meta Title cannot be longer than 300 characters." on the screen
-
-  @focus
-  Scenario: Create tag with valid meta title
-    Given I open Ghost admin page
-    And I login into the admin page
-    And I go to the tags page
-    When I go to the new tag page
-    And I put "correct tag title" on the "tag_title" element
-    And I expand tag Metadata
-    And I put "valid site title" on the "tag_meta_title" element
-    And I click save tag
-    Then I see "Delete tag" on the screen
-
-
 
   @focus
   Scenario: Create tag with meta description with more than 500 characters
@@ -165,16 +177,6 @@ Feature: Forms with apriori data pool
     And I login into the admin page
     And I go to the tags page
     When I go to the new tag page
-    And I click save tag
-    Then I see "You must specify a name for the tag." on the screen
-
-  @focus
-  Scenario: Create tag with whitespaces title
-    Given I open Ghost admin page
-    And I login into the admin page
-    And I go to the tags page
-    When I go to the new tag page
-    And I put "whitespaces" on the "tag_title" element
     And I click save tag
     Then I see "You must specify a name for the tag." on the screen
 
@@ -284,13 +286,6 @@ Feature: Forms with apriori data pool
     And I click save tag
     Then I see "The colour should be in valid hex format" on the screen
 
-  @focus
-  Scenario: Login with correct data pool
-    Given I open Ghost admin page
-    When I login into the admin page
-    And I put "a correct password" on the "login_password" element
-    And I click the "login_button" element
-    Then I see "There is no user with that email address." on the screen
 
   @focus
   Scenario: Login with incorrect email
@@ -321,22 +316,6 @@ Feature: Forms with apriori data pool
     Given I open Ghost admin page
     When I put "an email with whitespace at the end" on the "login_email" element
     And I put "a correct password" on the "login_password" element
-    And I click the "login_button" element
-    Then I see "There is no user with that email address." on the screen
-
-  @focus
-  Scenario: Login with short password
-    Given I open Ghost admin page
-    When I put "a correct email" on the "login_email" element
-    And I put "a short password" on the "login_password" element
-    And I click the "login_button" element
-    Then I see "There is no user with that email address." on the screen
-
-  @focus
-  Scenario: Login with long password
-    Given I open Ghost admin page
-    When I put "a correct email" on the "login_email" element
-    And I put "a long password" on the "login_password" element
     And I click the "login_button" element
     Then I see "There is no user with that email address." on the screen
 
@@ -348,14 +327,6 @@ Feature: Forms with apriori data pool
     And I click the "login_button" element
     Then I see "Please fill out the form to sign in." on the screen
 
-
-  @focus
-  Scenario: Login with correct data pool
-    Given I open Ghost admin page
-    And I put "a correct password" on the "login_password" element
-    And I click the "login_button" element
-    Then I see "There is no user with that email address." on the screen
-
   @focus
   Scenario: Login with incorrect email
     Given I open Ghost admin page
@@ -385,22 +356,6 @@ Feature: Forms with apriori data pool
     Given I open Ghost admin page
     When I put "an email with whitespace at the end" on the "login_email" element
     And I put "a correct password" on the "login_password" element
-    And I click the "login_button" element
-    Then I see "There is no user with that email address." on the screen
-
-  @focus
-  Scenario: Login with short password
-    Given I open Ghost admin page
-    When I put "a correct email" on the "login_email" element
-    And I put "a short password" on the "login_password" element
-    And I click the "login_button" element
-    Then I see "There is no user with that email address." on the screen
-
-  @focus
-  Scenario: Login with long password
-    Given I open Ghost admin page
-    When I put "a correct email" on the "login_email" element
-    And I put "a long password" on the "login_password" element
     And I click the "login_button" element
     Then I see "There is no user with that email address." on the screen
 
