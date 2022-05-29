@@ -4,6 +4,8 @@ Integrantes:
 * Camilo Alejandro Sánchez Cruz ca.sanchezc12@uniandes.edu.co
 * Lizeth Daniela Castellanos Alfonso ld.castellanos@uniandes.edu.co
 
+# Video Semana 8
+https://youtu.be/4fRA85hcTcI
 
 # Entregables de Semana 8
 * [Instalación del entorno](#instalacion_entorno)
